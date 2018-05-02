@@ -14,7 +14,6 @@ private:
 	string password;
 public:
 	Admin() {};
-	Admin(const Admin &a);
 	void setEmail(string);
 	string getEmail();
 	void setPassword(string);

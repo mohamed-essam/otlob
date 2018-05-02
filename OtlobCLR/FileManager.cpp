@@ -14,7 +14,7 @@ void FileManager::saveIds(map<string, int> ids)
 	for (auto it = ids.begin(); it != ids.end(); it++)
 		j[it->first] = it->second;
 	ofstream f;
-	string ss = *path + "\\Admin.json";
+	string ss = *path + "\\Ids.json";
 	f.open(ss, ofstream::out);
 	f << j.dump();
 	f.close();

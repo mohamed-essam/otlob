@@ -22,7 +22,7 @@ using namespace System;
 public value class FileManager
 {
 public:
-	static string *path = new string("");
+	static string *path = new string("D:\\Yazan Rihani\\Documents\\Visual Studio 2015\\Projects\\OtlobDB");
 	static void saveAdmin(vector<Admin>);
 	static void saveCategory(vector<Category>);
 	static void saveEmployee(vector<Employee>);

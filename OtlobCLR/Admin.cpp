@@ -2,9 +2,6 @@
 
 using namespace std;
 
-Admin::Admin(const Admin &a) {
-
-}
 
 void Admin::setEmail(string Email)
 {

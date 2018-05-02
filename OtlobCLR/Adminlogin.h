@@ -2,6 +2,7 @@
 #include <msclr\marshal_cppstd.h>
 #include <Windows.h>
 #include "ObjectsGetter.h"
+#include "AdminMain.h"
 namespace OtlobCLR {
 
 	using namespace System;
@@ -124,12 +125,14 @@ namespace OtlobCLR {
 		String^ t1 = emailtext->Text;
 		String^ t2 = passtext->Text;
 		ObjectsGetter::initAdmins();
-		std::string email = msclr::interop::marshal_as<std::string>(t1);
-		std::string password = msclr::interop::marshal_as<std::string>(t2);
+		string email = msclr::interop::marshal_as<std::string>(t1);
+		string password = msclr::interop::marshal_as<std::string>(t2);
 		try
 		{
 			Admin admin = ObjectsGetter::GetAdminByEmailAndPassword(email, password);
-			MessageBox::Show(t1);
+			AdminMain^ F = gcnew AdminMain();
+			F -> Show();
+			this -> Hide();
 		}
 		catch (Exception^ e)
 		{

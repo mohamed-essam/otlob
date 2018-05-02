@@ -254,7 +254,7 @@ namespace OtlobCLR {
 			user.setBirthdate(birthdate);
 			user.setPhone(phone); 
 			user.setPassword(pass); 
-			ObjectsGetter::AddUser(id, user); 
+			ObjectsGetter::AddUser(user); 
 			ObjectsGetter::saveUsers(); 
 		}
 

@@ -1,5 +1,6 @@
 #include "ObjectsGetter.h"
 
+#pragma region data
 map<int, Admin> ObjectsGetter::Admins = {};
 map<int, Category>ObjectsGetter::Categories = {};
 map<int, Employee>ObjectsGetter::Employees = {};
@@ -13,6 +14,7 @@ map<int, User>ObjectsGetter::Users = {};
 map<int, Variation>ObjectsGetter::Variations = {};
 map<int, Restaurant>ObjectsGetter::Restaurants = {};
 map<string, int>ObjectsGetter::Ids = {};
+#pragma endregion
 ObjectsGetter::ObjectsGetter()
 {
 }
@@ -433,12 +435,14 @@ void ObjectsGetter::DeleteRestaurant(int id)
 void ObjectsGetter::AddAdmin(Admin x)
 {
 	int id = Ids["admin"];
+	x.setId(id);
 	Admins[id] = x;
 	Ids["admin"] = ++id;
 }
 void ObjectsGetter::AddCategory(Category x)
 {
 	int id = Ids["category"];
+	x.setId(id);
 	Categories[id] = x;
 	Ids["category"] = ++id;
 }
@@ -446,6 +450,7 @@ void ObjectsGetter::AddCategory(Category x)
 void ObjectsGetter::AddMenu(Menu x)
 {
 	int id = Ids["menu"];
+	x.setId(id);
 	Menus[id] = x;
 	Ids["menu"] = ++id;
 }
@@ -453,6 +458,7 @@ void ObjectsGetter::AddMenu(Menu x)
 void ObjectsGetter::AddMenuIteam(MenuItem x)
 {
 	int id = Ids["menu_item"];
+	x.setId(id);
 	MenuItems[id] = x;
 	Ids["menu_item"] = ++id;
 }
@@ -460,6 +466,7 @@ void ObjectsGetter::AddMenuIteam(MenuItem x)
 void ObjectsGetter::AddMenuCategory(MenuCategory x)
 {
 	int id = Ids["menu_category"];
+	x.setId(id);
 	MenuCategories[id] = x;
 	Ids["manu_category"] = ++id;
 }
@@ -467,6 +474,7 @@ void ObjectsGetter::AddMenuCategory(MenuCategory x)
 void ObjectsGetter::AddOrder(Order x)
 {
 	int id = Ids["order"];
+	x.setId(id);
 	Orders[id] = x;
 	Ids["order"] = ++id;
 }
@@ -474,6 +482,7 @@ void ObjectsGetter::AddOrder(Order x)
 void ObjectsGetter::AddOrderItem(OrderItem x)
 {
 	int id = Ids["order_item"];
+	x.setId(id);
 	OrderItems[id] = x;
 	Ids["order_item"] = ++id;
 }
@@ -481,6 +490,7 @@ void ObjectsGetter::AddOrderItem(OrderItem x)
 void ObjectsGetter::AddUser(User x)
 {
 	int id = Ids["user"];
+	x.setId(id);
 	Users[id] = x;
 	Ids["user"] = ++id;
 }
@@ -488,6 +498,7 @@ void ObjectsGetter::AddUser(User x)
 void ObjectsGetter::AddVaritation(Variation x)
 {
 	int id = Ids["variation"];
+	x.setId(id);
 	Variations[id] = x;
 	Ids["variation"] = ++id;
 }
@@ -495,6 +506,7 @@ void ObjectsGetter::AddVaritation(Variation x)
 void ObjectsGetter::AddEmployee(Employee x)
 {
 	int id = Ids["employee"];
+	x.setId(id);
 	Employees[id] = x;
 	Ids["employee"] = ++id;
 }
@@ -502,12 +514,14 @@ void ObjectsGetter::AddEmployee(Employee x)
 void ObjectsGetter::AddFeedBack(Feedback x)
 {
 	int id = Ids["feedback"];
+	x.setId(id);
 	Feedbacks[id] = x;
 	Ids["feedback"] = ++id;
 }
 void ObjectsGetter::AddRestaurant(Restaurant x)
 {
 	int id = Ids["restaurant"];
+	x.setId(id);
 	Restaurants[id] = x;
 	Ids["restaurant"] = ++id;
 }

@@ -125,6 +125,8 @@
   <ItemGroup>
     <ClCompile Include="Admin.cpp" />
     <ClCompile Include="Adminlogin.cpp" />
+    <ClCompile Include="AdminMain.cpp" />
+    <ClCompile Include="AdminShowOrders.cpp" />
     <ClCompile Include="Category.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="Feedback.cpp" />
@@ -146,6 +148,12 @@
   <ItemGroup>
     <ClInclude Include="Admin.h" />
     <ClInclude Include="Adminlogin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AdminMain.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AdminShowOrders.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Category.h" />
@@ -183,6 +191,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Adminlogin.resx">
       <DependentUpon>Adminlogin.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminMain.resx">
+      <DependentUpon>AdminMain.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminShowOrders.resx">
+      <DependentUpon>AdminShowOrders.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.h</DependentUpon>
