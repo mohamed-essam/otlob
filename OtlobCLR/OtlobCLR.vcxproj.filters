@@ -78,6 +78,9 @@
     <ClCompile Include="AdminShowOrders.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="Userlogin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h">
@@ -144,6 +147,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AdminShowOrders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Userlogin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

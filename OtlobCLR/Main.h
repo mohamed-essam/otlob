@@ -4,6 +4,7 @@
 #include "ObjectsGetter.h"
 #include "MyForm.h"
 #include "Adminlogin.h"
+#include "Userlogin.h"
 
 
 namespace OtlobCLR {
@@ -53,8 +54,8 @@ namespace OtlobCLR {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^  textBox1;
-	private: System::Windows::Forms::TextBox^  textBox2;
+
+
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Button^  button3;
@@ -73,33 +74,15 @@ namespace OtlobCLR {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(124, 70);
-			this->textBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(132, 22);
-			this->textBox1->TabIndex = 0;
-			// 
-			// textBox2
-			// 
-			this->textBox2->Location = System::Drawing::Point(124, 103);
-			this->textBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(132, 22);
-			this->textBox2->TabIndex = 1;
-			// 
 			// button1
 			// 
 			this->button1->Location = System::Drawing::Point(72, 254);
-			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(219, 43);
 			this->button1->TabIndex = 2;
@@ -114,7 +97,7 @@ namespace OtlobCLR {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(100, 28);
 			this->button2->TabIndex = 3;
-			this->button2->Text = L"Login";
+			this->button2->Text = L"UserLogin";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &Main::button2_Click);
 			// 
@@ -136,15 +119,12 @@ namespace OtlobCLR {
 			this->ClientSize = System::Drawing::Size(379, 322);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->button3);
 			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"Main";
 			this->Text = L"Main";
 			this->Load += gcnew System::EventHandler(this, &Main::Main_Load);
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -160,23 +140,10 @@ namespace OtlobCLR {
 		this->Hide();
 	}
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-
-		String^ t1 = textBox1->Text;
-		String^ t2 = textBox2->Text;
-		ObjectsGetter::initUsers();
-		std::string username = msclr::interop::marshal_as<std::string>(t1);
-		std::string password = msclr::interop::marshal_as<std::string>(t2);
-		try
-		{
-			User user = ObjectsGetter::GetUserByEmailAndPassword(username, password);
-			MessageBox::Show(t1);
-		}
-		catch (exception e)
-		{
-			MessageBox::Show("Invalid Email or Password");
-			String^ x = gcnew String(e.what());
-			MessageBox::Show(x);
-		}
+		Userlogin^ mf = gcnew Userlogin();
+		mf->Show();
+		this->Hide();
+		
 	}
 	private: System::Void Main_Load(System::Object^  sender, System::EventArgs^  e) {
 	}

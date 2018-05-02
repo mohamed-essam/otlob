@@ -5,6 +5,7 @@
 #include <map>
 #include <vector>
 #include "FileManager.h"
+
 using namespace std;
 
 class ObjectsGetter
