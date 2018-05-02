@@ -22,7 +22,8 @@ using namespace System;
 public value class FileManager
 {
 public:
-	static string *path = new string("C:\\Users\\MahmoudAbdou.DESKTOP-VTLC0AC\\Downloads\\CLR\\OtlobDB");
+	static string *path = new string("");
+	//C:\\Users\\MOody\\Desktop\\VS\\lolll\\CLR\\OtlobDB
 	static void saveAdmin(vector<Admin>);
 	static void saveCategory(vector<Category>);
 	static void saveEmployee(vector<Employee>);

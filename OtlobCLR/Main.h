@@ -154,9 +154,11 @@ namespace OtlobCLR {
 			User user = ObjectsGetter::GetUserByEmailAndPassword(username, password);
 			MessageBox::Show(t1);
 		}
-		catch (Exception^ e)
+		catch (exception e)
 		{
 			MessageBox::Show("Invalid Email or Password");
+			String^ x = gcnew String(e.what());
+			MessageBox::Show(x);
 		}
 	}
 	};

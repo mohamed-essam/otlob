@@ -202,7 +202,8 @@ void FileManager::saveRestaurant(vector<Restaurant> res)
 			{"menu_id", res[i].getMenuId()},
 			{"rating", res[i].getRating()},
 			{"name", res[i].getName()},
-			{"address", res[i].getAddress()},
+			{"governorate", res[i].getGovernorate()},
+			{"area",res[i].getArea()},
 			{"working_hours", res[i].getWorkingHours()},
 			{"phone", res[i].getPhone()},
 			{"picture_path", res[i].getPicturePath()},
@@ -438,7 +439,8 @@ vector<Restaurant> FileManager::loadRestaurant()
 	{
 		Restaurant restaurant;
 		restaurant.setId(jj[i]["id"]);
-		restaurant.setAddress(jj[i]["address"]);
+		restaurant.setArea(jj[i]["area"]);
+		restaurant.setGovernorate(jj[i]["governorate"]);
 		restaurant.setMenuId(jj[i]["menu_id"]);
 		restaurant.setName(jj[i]["name"]);
 		restaurant.setPhone(jj[i]["phone"]);
