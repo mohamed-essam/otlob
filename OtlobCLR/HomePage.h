@@ -110,7 +110,7 @@ namespace OtlobCLR {
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(308, 35);
 			this->button5->TabIndex = 4;
-			this->button5->Text = L"UnFucken Register Me ";
+			this->button5->Text = L"UnRegister";
 			this->button5->UseVisualStyleBackColor = true;
 			this->button5->Click += gcnew System::EventHandler(this, &HomePage::button5_Click);
 			// 
