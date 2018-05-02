@@ -5,6 +5,7 @@
 #include "MyForm.h"
 #include "Adminlogin.h"
 #include "Userlogin.h"
+#include "MenuFrom.h"
 
 
 namespace OtlobCLR {

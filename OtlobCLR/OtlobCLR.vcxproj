@@ -127,15 +127,19 @@
     <ClCompile Include="Adminlogin.cpp" />
     <ClCompile Include="AdminMain.cpp" />
     <ClCompile Include="AdminShowOrders.cpp" />
+    <ClCompile Include="Cart.cpp" />
+    <ClCompile Include="CartItem.cpp" />
     <ClCompile Include="Category.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="Feedback.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="HomePage.cpp" />
     <ClCompile Include="Human.cpp" />
+    <ClCompile Include="listitem.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuCategory.cpp" />
+    <ClCompile Include="MenuFrom.cpp" />
     <ClCompile Include="MenuItem.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="ObjectsGetter.cpp" />
@@ -157,6 +161,8 @@
     <ClInclude Include="AdminShowOrders.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Cart.h" />
+    <ClInclude Include="CartItem.h" />
     <ClInclude Include="Category.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="Feedback.h" />
@@ -166,11 +172,17 @@
     </ClInclude>
     <ClInclude Include="Human.h" />
     <ClInclude Include="json.hpp" />
+    <ClInclude Include="listitem.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="Main.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuCategory.h" />
+    <ClInclude Include="MenuFrom.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MenuItem.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
@@ -205,8 +217,14 @@
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="listitem.resx">
+      <DependentUpon>listitem.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuFrom.resx">
+      <DependentUpon>MenuFrom.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
