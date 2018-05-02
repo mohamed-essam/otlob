@@ -23,7 +23,6 @@ public value class FileManager
 {
 public:
 	static string *path = new string("");
-	//C:\\Users\\MOody\\Desktop\\VS\\lolll\\CLR\\OtlobDB
 	static void saveAdmin(vector<Admin>);
 	static void saveCategory(vector<Category>);
 	static void saveEmployee(vector<Employee>);
@@ -36,6 +35,7 @@ public:
 	static void saveRestaurant(vector<Restaurant>);
 	static void saveUser(vector<User>);
 	static void saveVariation(vector<Variation>);
+	static void saveIds(map<string, int>);
 	static vector<Admin> loadAdmin();
 	static vector<Category> loadCategory();
 	static vector<Employee> loadEmployee();
@@ -48,7 +48,7 @@ public:
 	static vector<Restaurant> loadRestaurant();
 	static vector<User> loadUser();
 	static vector<Variation> loadVariation();
-
+	static map<string, int> loadIds();
 	static json vectorToJsonArray(vector<int>);
 	static string slurp(ifstream&);
 	static json readFile(string);

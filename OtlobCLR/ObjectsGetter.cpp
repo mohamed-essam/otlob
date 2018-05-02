@@ -4,7 +4,6 @@ map<int, Admin> ObjectsGetter::Admins = {};
 map<int, Category>ObjectsGetter::Categories = {};
 map<int, Employee>ObjectsGetter::Employees = {};
 map<int, Feedback>ObjectsGetter::Feedbacks = {};
-map<int, Human>ObjectsGetter::Humans = {};
 map<int, Menu>ObjectsGetter::Menus = {};
 map<int, MenuItem>ObjectsGetter::MenuItems = {};
 map<int, Order>ObjectsGetter::Orders = {};
@@ -13,7 +12,7 @@ map<int, MenuCategory>ObjectsGetter::MenuCategories = {};
 map<int, User>ObjectsGetter::Users = {};
 map<int, Variation>ObjectsGetter::Variations = {};
 map<int, Restaurant>ObjectsGetter::Restaurants = {};
-
+map<string, int>ObjectsGetter::Ids = {};
 ObjectsGetter::ObjectsGetter()
 {
 }
@@ -25,6 +24,7 @@ ObjectsGetter::~ObjectsGetter()
 #pragma region save
 void ObjectsGetter::saveAll()
 {
+	saveIds();
 	saveAdmins();
 	saveCategorys();
 	saveEmployees();
@@ -37,6 +37,10 @@ void ObjectsGetter::saveAll()
 	saveUsers();
 	saveVariations();
 	saveRestaurant();
+}
+void ObjectsGetter::saveIds()
+{
+	FileManager::saveIds(Ids);
 }
 void ObjectsGetter::saveAdmins()
 {
@@ -126,6 +130,7 @@ void ObjectsGetter::saveRestaurant()
 #pragma region init
 void ObjectsGetter::InitAll()
 {
+	initIds();
 	initAdmins();
 	initCategorys();
 	initEmployees();
@@ -138,6 +143,10 @@ void ObjectsGetter::InitAll()
 	initUsers();
 	initVaritations();
 	initRestaurant();
+}
+void ObjectsGetter::initIds()
+{
+	Ids = FileManager::loadIds();
 }
 void ObjectsGetter::initAdmins()
 {
@@ -262,11 +271,6 @@ Admin ObjectsGetter::GetAdmin(int id)
 
 	return (Admins)[id];
 }
-Human ObjectsGetter::GetHuman(int id)
-{
-	return (Humans)[id];
-}
-
 Category ObjectsGetter::GetCategory(int id)
 {
 	return (Categories)[id];
@@ -369,10 +373,6 @@ void ObjectsGetter::DeleteAdmin(int id)
 
 	(Admins).erase(id);
 }
-void ObjectsGetter::DeleteHuman(int id)
-{
-	(Humans).erase(id);
-}
 
 void ObjectsGetter::DeleteCategory(int id)
 {
@@ -429,69 +429,87 @@ void ObjectsGetter::DeleteRestaurant(int id)
 	(Restaurants).erase(id);
 }
 #pragma endregion Delete
-
 #pragma region Add
-void ObjectsGetter::AddAdmin(int id, Admin x)
+void ObjectsGetter::AddAdmin(Admin x)
 {
-	(Admins)[id] = x;
+	int id = Ids["admin"];
+	Admins[id] = x;
+	Ids["admin"] = ++id;
 }
-void ObjectsGetter::AddHuman(int id, Human x)
+void ObjectsGetter::AddCategory(Category x)
 {
-	(Humans)[id] = x;
-}
-
-void ObjectsGetter::AddCategory(int id, Category x)
-{
-	(Categories)[id] = x;
-}
-
-void ObjectsGetter::AddMenu(int id, Menu x)
-{
-	(Menus)[id] = x;
+	int id = Ids["category"];
+	Categories[id] = x;
+	Ids["category"] = ++id;
 }
 
-void ObjectsGetter::AddMenuIteam(int id, MenuItem x)
+void ObjectsGetter::AddMenu(Menu x)
 {
-	(MenuItems)[id] = x;
+	int id = Ids["menu"];
+	Menus[id] = x;
+	Ids["menu"] = ++id;
 }
 
-void ObjectsGetter::AddMenuCategory(int id, MenuCategory x)
+void ObjectsGetter::AddMenuIteam(MenuItem x)
 {
-	(MenuCategories)[id] = x;
+	int id = Ids["menu_item"];
+	MenuItems[id] = x;
+	Ids["menu_item"] = ++id;
 }
 
-void ObjectsGetter::AddOrder(int id, Order x)
+void ObjectsGetter::AddMenuCategory(MenuCategory x)
 {
-	(Orders)[id] = x;
+	int id = Ids["menu_category"];
+	MenuCategories[id] = x;
+	Ids["manu_category"] = ++id;
 }
 
-void ObjectsGetter::AddOrderItem(int id, OrderItem x)
+void ObjectsGetter::AddOrder(Order x)
 {
-	(OrderItems)[id] = x;
+	int id = Ids["order"];
+	Orders[id] = x;
+	Ids["order"] = ++id;
 }
 
-void ObjectsGetter::AddUser(int id, User x)
+void ObjectsGetter::AddOrderItem(OrderItem x)
 {
-	(Users)[id] = x;
+	int id = Ids["order_item"];
+	OrderItems[id] = x;
+	Ids["order_item"] = ++id;
 }
 
-void ObjectsGetter::AddVaritation(int id, Variation x)
+void ObjectsGetter::AddUser(User x)
 {
-	(Variations)[id] = x;
+	int id = Ids["user"];
+	Users[id] = x;
+	Ids["user"] = ++id;
 }
 
-void ObjectsGetter::AddEmployee(int id, Employee x)
+void ObjectsGetter::AddVaritation(Variation x)
 {
-	(Employees)[id] = x;
+	int id = Ids["variation"];
+	Variations[id] = x;
+	Ids["variation"] = ++id;
 }
 
-void ObjectsGetter::AddFeedBack(int id, Feedback x)
+void ObjectsGetter::AddEmployee(Employee x)
 {
-	(Feedbacks)[id] = x;
+	int id = Ids["employee"];
+	Employees[id] = x;
+	Ids["employee"] = ++id;
 }
-void ObjectsGetter::AddRestaurant(int id, Restaurant x)
+
+void ObjectsGetter::AddFeedBack(Feedback x)
 {
-	(Restaurants)[id] = x;
+	int id = Ids["feedback"];
+	Feedbacks[id] = x;
+	Ids["feedback"] = ++id;
+}
+void ObjectsGetter::AddRestaurant(Restaurant x)
+{
+	int id = Ids["restaurant"];
+	Restaurants[id] = x;
+	Ids["restaurant"] = ++id;
 }
 #pragma endregion Add
 #pragma region kee

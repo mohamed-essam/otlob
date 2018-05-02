@@ -1,13 +1,23 @@
 #include "FileManager.h"
 
 //string* FileManager::path = new string("C:\\Users\\MOody\\Desktop\\VS\\OtlobDB");
-
 json FileManager::vectorToJsonArray(vector<int> v)
 {
 	json j = json::array();
 	for (int i = 0; i < v.size(); i++)
 		j.push_back(v[i]);
 	return j;
+}
+void FileManager::saveIds(map<string, int> ids)
+{
+	json j;
+	for (auto it = ids.begin(); it != ids.end(); it++)
+		j[it->first] = it->second;
+	ofstream f;
+	string ss = *path + "\\Admin.json";
+	f.open(ss, ofstream::out);
+	f << j.dump();
+	f.close();
 }
 void FileManager::saveAdmin(vector<Admin> admins)
 {
@@ -30,6 +40,7 @@ void FileManager::saveAdmin(vector<Admin> admins)
 		j.push_back(jj);
 	}
 	f << j.dump();
+	f.close();
 }
 void FileManager::saveCategory(vector<Category> cat)
 {
@@ -47,6 +58,7 @@ void FileManager::saveCategory(vector<Category> cat)
 		j.push_back(jj);
 	}
 	f << j.dump();
+	f.close();
 }
 void FileManager::saveEmployee(vector<Employee> emp)
 {
@@ -69,6 +81,7 @@ void FileManager::saveEmployee(vector<Employee> emp)
 		j.push_back(jj);
 	}
 	f << j.dump();
+	f.close();
 }
 void FileManager::saveFeedback(vector<Feedback> fb)
 {
@@ -89,6 +102,7 @@ void FileManager::saveFeedback(vector<Feedback> fb)
 		j.push_back(jj);
 	}
 	f << j.dump();
+	f.close();
 }
 void FileManager::saveMenu(vector<Menu> menus)
 {
@@ -106,6 +120,7 @@ void FileManager::saveMenu(vector<Menu> menus)
 		j.push_back(jj);
 	}
 	f << j.dump();
+	f.close();
 }
 void FileManager::saveMenuCategory(vector<MenuCategory> cat)
 {
@@ -124,6 +139,7 @@ void FileManager::saveMenuCategory(vector<MenuCategory> cat)
 		j.push_back(jj);
 	}
 	f << j.dump();
+	f.close();
 }
 void FileManager::saveMenuItem(vector<MenuItem> it)
 {
@@ -145,6 +161,7 @@ void FileManager::saveMenuItem(vector<MenuItem> it)
 		j.push_back(jj);
 	}
 	f << j.dump();
+	f.close();
 }
 void FileManager::saveOrder(vector<Order> ord)
 {
@@ -169,6 +186,7 @@ void FileManager::saveOrder(vector<Order> ord)
 		j.push_back(jj);
 	}
 	f << j.dump();
+	f.close();
 }
 void FileManager::saveOrderItem(vector<OrderItem> ord)
 {
@@ -187,6 +205,7 @@ void FileManager::saveOrderItem(vector<OrderItem> ord)
 		j.push_back(jj);
 	}
 	f << j.dump();
+	f.close();
 }
 void FileManager::saveRestaurant(vector<Restaurant> res)
 {
@@ -213,6 +232,7 @@ void FileManager::saveRestaurant(vector<Restaurant> res)
 		j.push_back(jj);
 	}
 	f << j.dump();
+	f.close();
 }
 void FileManager::saveUser(vector<User> users)
 {
@@ -257,6 +277,7 @@ void FileManager::saveVariation(vector<Variation> var)
 		j.push_back(jj);
 	}
 	f << j.dump();
+	f.close();
 }
 
 string FileManager::slurp(ifstream& in) {
@@ -271,9 +292,9 @@ json FileManager::readFile(string fileName) {
 	f.open(ss, ofstream::in);
 	string F = slurp(f);
 	json j = json::parse(F);
+	f.close();
 	return j;
 }
-
 vector<int> FileManager::jsonArrayToVector(json arr) {
 	vector<int> ret;
 	for (int i = 0; i < arr.size(); i++)
@@ -282,7 +303,14 @@ vector<int> FileManager::jsonArrayToVector(json arr) {
 	}
 	return ret;
 }
-
+map<string, int> FileManager::loadIds()
+{
+	json j = readFile("Ids.json");
+	map<string, int> ret;
+	for (json::iterator it = j.begin(); it != j.end(); it++)
+		ret[it.key()] = it.value();
+	return ret;
+}
 vector<Admin> FileManager::loadAdmin()
 {
 	json jj = readFile("Admin.json");
