@@ -63,6 +63,10 @@ public:
 	static User GetUser(int);
 	static Variation GetVaritation(int);
 	static Restaurant GetRestaurant(int);
+	static vector<Order> GetAllOrders();
+	static vector<Order> GetOrderByRange(long long);
+	static vector<Category> GetAllCategories();
+	static vector<Restaurant> ShowRestaurantByCategory(Category);
 	static void DeleteAdmin(int);
 	static void DeleteCategory(int);
 	static void DeleteEmployee(int);

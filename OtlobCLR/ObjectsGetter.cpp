@@ -43,54 +43,63 @@ void ObjectsGetter::saveAdmins()
 	vector<Admin>vec;
 	for (auto it = Admins.begin(); it != Admins.end(); it++)
 		vec.push_back(it->second);
+	FileManager::saveAdmin(vec);
 }
 void ObjectsGetter::saveCategorys()
 {
 	vector<Category>vec;
 	for (auto it = Categories.begin(); it != Categories.end(); it++)
 		vec.push_back(it->second);
+	FileManager::saveCategory(vec);
 }
 void ObjectsGetter::saveEmployees()
 {
 	vector<Employee>vec;
 	for (auto it = Employees.begin(); it != Employees.end(); it++)
 		vec.push_back(it->second);
+	FileManager::saveEmployee(vec);
 }
 void ObjectsGetter::saveFeedBacks()
 {
 	vector<Feedback>vec;
 	for (auto it = Feedbacks.begin(); it != Feedbacks.end(); it++)
 		vec.push_back(it->second);
+	FileManager::saveFeedback(vec);
 }
 void ObjectsGetter::saveMenuCategorys()
 {
 	vector<MenuCategory>vec;
 	for (auto it = MenuCategories.begin(); it != MenuCategories.end(); it++)
 		vec.push_back(it->second);
+	FileManager::saveMenuCategory(vec);
 }
 void ObjectsGetter::saveMenus()
 {
 	vector<Menu>vec;
 	for (auto it = Menus.begin(); it != Menus.end(); it++)
 		vec.push_back(it->second);
+	FileManager::saveMenu(vec);
 }
 void ObjectsGetter::saveMenuItems()
 {
 	vector<MenuItem>vec;
 	for (auto it = MenuItems.begin(); it != MenuItems.end(); it++)
 		vec.push_back(it->second);
+	FileManager::saveMenuItem(vec);
 }
 void ObjectsGetter::saveOrders()
 {
 	vector<Order>vec;
 	for (auto it = Orders.begin(); it != Orders.end(); it++)
 		vec.push_back(it->second);
+	FileManager::saveOrder(vec);
 }
 void ObjectsGetter::saveOrderItems()
 {
 	vector<OrderItem>vec;
 	for (auto it = OrderItems.begin(); it != OrderItems.end(); it++)
 		vec.push_back(it->second);
+	FileManager::saveOrderItem(vec);
 }
 void ObjectsGetter::saveUsers()
 {
@@ -104,13 +113,14 @@ void ObjectsGetter::saveVariations()
 	vector<Variation>vec;
 	for (auto it = Variations.begin(); it != Variations.end(); it++)
 		vec.push_back(it->second);
+	FileManager::saveVariation(vec);
 }
 void ObjectsGetter::saveRestaurant()
 {
 	vector<Restaurant>vec;
 	for (auto it = Restaurants.begin(); it != Restaurants.end(); it++)
 		vec.push_back(it->second);
-
+	FileManager::saveRestaurant(vec);
 }
 #pragma endregion save
 #pragma region init
@@ -309,6 +319,48 @@ Feedback ObjectsGetter::GetFeedBack(int id)
 Restaurant ObjectsGetter::GetRestaurant(int id)
 {
 	return (Restaurants)[id];
+}
+vector<Order> ObjectsGetter::GetAllOrders()
+{
+	vector<Order>vec;
+	for (auto it = Orders.begin(); it != Orders.end(); it++)
+	vec.push_back(it->second);
+	return vec;
+}
+vector<Order> ObjectsGetter::GetOrderByRange(long long st)
+{
+	long long endd = st + 24 * 60 * 30;
+	vector<Order>vec;
+	for(auto it=Orders.begin();it!=Orders.end();it++)
+	{ 
+		if (it->second.getTime() < endd&&it->second.getTime() >= st)vec.push_back(it->second);
+	}
+	return vec;
+}
+vector<Category> ObjectsGetter::GetAllCategories()
+{
+	vector<Category>vec;
+	for (auto it = Categories.begin(); it != Categories.end(); it++)
+	{
+		vec.push_back(it->second);
+	}
+	return vec;
+}
+vector<Restaurant> ObjectsGetter::ShowRestaurantByCategory(Category c)
+{
+	vector<Restaurant>vec;
+	for (auto it = Restaurants.begin(); it != Restaurants.end(); it++)
+	{
+		bool x = 0;
+		vector<int>cat = it->second.getCategoriesIds();
+		for (int i = 0; i < cat.size(); i++)
+		{
+			if (cat[i] == c.getId())
+				x = 1;
+		}
+		if(x)vec.push_back(it->second);
+	}
+	return vec;
 }
 #pragma endregion Get
 #pragma region Delete
