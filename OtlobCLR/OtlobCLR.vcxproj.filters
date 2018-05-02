@@ -93,6 +93,12 @@
     <ClCompile Include="CartItem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
+=======
+    <ClCompile Include="AdminListOrders.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h">
@@ -176,6 +182,12 @@
     <ClInclude Include="CartItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
+=======
+    <ClInclude Include="AdminListOrders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Main.resx">

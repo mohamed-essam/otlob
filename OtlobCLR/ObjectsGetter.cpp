@@ -368,6 +368,16 @@ vector<Restaurant> ObjectsGetter::ShowRestaurantByCategory(Category c)
 	}
 	return vec;
 }
+vector<Order> ObjectsGetter::GetOrderByUser(User u)
+{
+	vector<Order>vec;
+	for (auto it = Orders.begin(); it != Orders.end(); it++)
+	{
+		if (it->second.getId() == u.getId())
+				vec.push_back(it->second);
+	}
+	return vec;
+}
 #pragma endregion Get
 #pragma region Delete
 void ObjectsGetter::DeleteAdmin(int id)

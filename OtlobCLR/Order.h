@@ -19,9 +19,9 @@ private:
 	int employeeId;
 	float rating;
 	long long time;
+	bool isCancelled;
 	vector<int> orderItemsIds;
 	float amountOff;
-	bool isCancelled;
 public:
 	int getId();
 	void setId(int);

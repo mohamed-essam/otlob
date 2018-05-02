@@ -1,4 +1,7 @@
 #pragma once
+#include <time.h>
+#include "ObjectsGetter.h"
+#include "AdminListOrders.h"
 
 namespace OtlobCLR {
 
@@ -67,6 +70,7 @@ namespace OtlobCLR {
 			this->dateButton->TabIndex = 0;
 			this->dateButton->Text = L"List Orders By Date";
 			this->dateButton->UseVisualStyleBackColor = true;
+			this->dateButton->Click += gcnew System::EventHandler(this, &AdminShowOrders::dateButton_Click);
 			// 
 			// button2
 			// 
@@ -109,6 +113,19 @@ namespace OtlobCLR {
 		}
 #pragma endregion
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+		ObjectsGetter::InitAll();
+		String^ s = textBox1->Text;
+		int id = Convert::ToInt32(s);
+		User u = ObjectsGetter::GetUser(id);
+		vector<Order> v = ObjectsGetter::GetOrderByUser(u);
+		MessageBox::Show(v.size().ToString());
+		AdminListOrders^ F = gcnew AdminListOrders(&v);
+		F->Show();
+		this->Hide();
+	}
+	private: System::Void dateButton_Click(System::Object^  sender, System::EventArgs^  e) {
+		DateTime tt = dateTimePicker1->Value;
+		struct tm t = { 0 };
 	}
 	};
 }

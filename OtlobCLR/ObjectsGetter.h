@@ -69,6 +69,7 @@ public:
 	static vector<Order> GetOrderByRange(long long);
 	static vector<Category> GetAllCategories();
 	static vector<Restaurant> ShowRestaurantByCategory(Category);
+	static vector<Order>GetOrderByUser(User);
 	static void DeleteAdmin(int);
 	static void DeleteCategory(int);
 	static void DeleteEmployee(int);
