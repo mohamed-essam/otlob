@@ -368,7 +368,7 @@ vector<Feedback> FileManager::loadFeedback()
 		Feedback feedback;
 		feedback.setId(jj[i]["id"]);
 		feedback.setRating(jj[i]["rating"]);
-		feedback.setRestaurantid(jj[i]["restaurant"]);
+		feedback.setRestaurantid(jj[i]["restaurant_id"]);
 		feedback.setReview(jj[i]["review"]);
 		feedback.setUserid(jj[i]["user_id"]);
 		ret.push_back(feedback);
@@ -433,7 +433,7 @@ vector<Order> FileManager::loadOrder()
 		order.setId(jj[i]["id"]);
 		order.setAmountoff(jj[i]["amount_off"]);
 		order.setEmployeeid(jj[i]["employee_id"]);
-		order.setIscancelled(jj[i]["is_cancelled"]);
+		order.setIscancelled(jj[i]["is_canceled"]);
 		order.setOrderitemsids(jsonArrayToVector(jj[i]["order_items_ids"]));
 		order.setRating(jj[i]["rating"]);
 		order.setRestaurantid(jj[i]["restaurant_id"]);
@@ -446,7 +446,7 @@ vector<Order> FileManager::loadOrder()
 
 vector<OrderItem> FileManager::loadOrderItem()
 {
-	json jj = readFile("MenuCategory.json");
+	json jj = readFile("OrderItem.json");
 	vector<OrderItem> ret;
 	for (int i = 0; i < jj.size(); i++)
 	{
