@@ -1,56 +1,56 @@
-#include "MenuItem.h"
+#include "MenuItemM.h"
 
-int MenuItem::getId() 
+int MenuItemM::getId() 
 {
 	return id;
 }
-void MenuItem::setId(int id)
+void MenuItemM::setId(int id)
 {
 	this->id = id;
 }
-int MenuItem::getQuantity()
+int MenuItemM::getQuantity()
 {
 	return quantity;
 }
-void MenuItem::setQuantity(int quantity)
+void MenuItemM::setQuantity(int quantity)
 {
 	this->quantity = quantity;
 }
-string MenuItem::getName()
+string MenuItemM::getName()
 {
 	return name;
 }
-void MenuItem::setName(string name)
+void MenuItemM::setName(string name)
 {
 	this->name = name;
 }
-string MenuItem::getPicturepath()
+string MenuItemM::getPicturepath()
 {
 	return picturePath;
 }
-void MenuItem::setPicturepath(string picturePath)
+void MenuItemM::setPicturepath(string picturePath)
 {
 	this->picturePath = picturePath;
 }
-string MenuItem::getDescription()
+string MenuItemM::getDescription()
 {
 	return description;
 }
-void MenuItem::setDescription(string description)
+void MenuItemM::setDescription(string description)
 {
 	this->description = description;
 }
-vector<int> MenuItem::getVariationsids()
+vector<int> MenuItemM::getVariationsids()
 {
 	return variationsIds;
 }
-void MenuItem::setVariationsids(vector<int> variationsids)
+void MenuItemM::setVariationsids(vector<int> variationsids)
 {
-	this->variationsIds = variationsIds;
+	this->variationsIds = variationsids;
 }
-MenuItem MenuItem::create(int id, int quantity, string name, string picturePath, string description)
+MenuItemM MenuItemM::create(int id, int quantity, string name, string picturePath, string description)
 {
-	MenuItem m;
+	MenuItemM m;
 	m.setId(id);
 	m.setQuantity(quantity);
 	m.setName(name);
@@ -58,7 +58,7 @@ MenuItem MenuItem::create(int id, int quantity, string name, string picturePath,
 	m.setDescription(description);
 	return m;
 }
-bool MenuItem::canOrder()
+bool MenuItemM::canOrder()
 {
 	return (quantity > 0);
 }

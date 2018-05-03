@@ -19,14 +19,6 @@ namespace OtlobCLR {
 	public ref class listitem : public System::Windows::Forms::UserControl
 	{
 	public:
-		/*listitem(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-		}*/
-		//property MenuFrom^ con;
 		property int i;
 		listitem(std::string name, int price, std::string picPath,int quantity,int id)
 		{
@@ -35,8 +27,6 @@ namespace OtlobCLR {
 			String ^ pic = gcnew String(picPath.c_str());
 			load(n, pic, price,quantity);
 			i = id;
-			//con = mm;
-			//i = indx;
 		}
 
 	protected:

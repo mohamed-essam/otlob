@@ -5,8 +5,8 @@ map<int, Admin> ObjectsGetter::Admins = {};
 map<int, Category>ObjectsGetter::Categories = {};
 map<int, Employee>ObjectsGetter::Employees = {};
 map<int, Feedback>ObjectsGetter::Feedbacks = {};
-map<int, Menu>ObjectsGetter::Menus = {};
-map<int, MenuItem>ObjectsGetter::MenuItems = {};
+map<int, Menuu>ObjectsGetter::Menus = {};
+map<int, MenuItemM>ObjectsGetter::MenuItems = {};
 map<int, Order>ObjectsGetter::Orders = {};
 map<int, OrderItem>ObjectsGetter::OrderItems = {};
 map<int, MenuCategory>ObjectsGetter::MenuCategories = {};
@@ -81,14 +81,14 @@ void ObjectsGetter::saveMenuCategorys()
 }
 void ObjectsGetter::saveMenus()
 {
-	vector<Menu>vec;
+	vector<Menuu>vec;
 	for (auto it = Menus.begin(); it != Menus.end(); it++)
 		vec.push_back(it->second);
 	FileManager::saveMenu(vec);
 }
 void ObjectsGetter::saveMenuItems()
 {
-	vector<MenuItem>vec;
+	vector<MenuItemM>vec;
 	for (auto it = MenuItems.begin(); it != MenuItems.end(); it++)
 		vec.push_back(it->second);
 	FileManager::saveMenuItem(vec);
@@ -192,7 +192,7 @@ void ObjectsGetter::initMenuCategorys()
 }
 void ObjectsGetter::initMenus()
 {
-	vector<Menu> menus = FileManager::loadMenu();
+	vector<Menuu> menus = FileManager::loadMenu();
 	for (auto i : menus)
 	{
 		(Menus)[i.getId()] = i;
@@ -200,7 +200,7 @@ void ObjectsGetter::initMenus()
 }
 void ObjectsGetter::initMenuIteams()
 {
-	vector<MenuItem> menuItems = FileManager::loadMenuItem();
+	vector<MenuItemM> menuItems = FileManager::loadMenuItem();
 	for (auto i : menuItems)
 	{
 		(MenuItems)[i.getId()] = i;
@@ -278,12 +278,12 @@ Category ObjectsGetter::GetCategory(int id)
 	return (Categories)[id];
 }
 
-Menu ObjectsGetter::GetMenu(int id)
+Menuu ObjectsGetter::GetMenu(int id)
 {
 	return (Menus)[id];
 }
 
-MenuItem ObjectsGetter::GetMenuIteam(int id)
+MenuItemM ObjectsGetter::GetMenuIteam(int id)
 {
 	return (MenuItems)[id];
 }
@@ -343,12 +343,25 @@ vector<Order> ObjectsGetter::GetOrderByRange(long long st)
 	}
 	return vec;
 }
-vector<Category> ObjectsGetter::GetAllCategories()
+vector<Category> ObjectsGetter::GetAllCategories(string gov, string area)
 {
+	vector<Restaurant>res = GetAllRestaurants(gov, area);
+	set<int>st;
+	for (auto i : res)
+		for (auto j : i.getCategoriesIds())
+			st.insert(j);
 	vector<Category>vec;
-	for (auto it = Categories.begin(); it != Categories.end(); it++)
+	for (auto i : st)
+		vec.push_back(GetCategory(i));
+	return vec;
+}
+vector<Restaurant> ObjectsGetter::GetAllRestaurants(string gov,string area)
+{
+	vector<Restaurant>vec;
+	for (auto i : Restaurants)
 	{
-		vec.push_back(it->second);
+		if(i.second.getArea() == area && i.second.getGovernorate() == gov)
+			vec.push_back(i.second);
 	}
 	return vec;
 }
@@ -447,7 +460,7 @@ void ObjectsGetter::AddCategory(Category x)
 	Ids["category"] = ++id;
 }
 
-void ObjectsGetter::AddMenu(Menu x)
+void ObjectsGetter::AddMenu(Menuu x)
 {
 	int id = Ids["menu"];
 	x.setId(id);
@@ -455,7 +468,7 @@ void ObjectsGetter::AddMenu(Menu x)
 	Ids["menu"] = ++id;
 }
 
-void ObjectsGetter::AddMenuIteam(MenuItem x)
+void ObjectsGetter::AddMenuIteam(MenuItemM x)
 {
 	int id = Ids["menu_item"];
 	x.setId(id);
@@ -585,6 +598,25 @@ vector<Order> ObjectsGetter::listOrdersOfUser(User u)
 	for (auto i : u.getOrderIds())
 		ret.push_back(GetOrder(i));
 	return ret;
+}
+
+set<string> ObjectsGetter::GetGov()
+{
+	set<string> st;
+	for (auto it = Restaurants.begin(); it != Restaurants.end(); it++)
+	{
+		st.insert(it->second.getGovernorate());
+	}
+	return st;
+}
+set<string> ObjectsGetter::GetAreas()
+{
+	set<string> st;
+	for (auto it = Restaurants.begin(); it != Restaurants.end(); it++)
+	{
+		st.insert(it->second.getArea());
+	}
+	return st;
 }
 
 #pragma endregion

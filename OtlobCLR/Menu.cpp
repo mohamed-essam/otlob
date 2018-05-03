@@ -1,23 +1,23 @@
-#include "Menu.h"
+#include "Menuu.h"
 
-void Menu::setId(int id)
+void Menuu::setId(int id)
 {
 	this->id = id;
 }
-int Menu::getId() {
+int Menuu::getId() {
 	return id;
 }
-vector<int>  Menu::getMenucategoriesids()
+vector<int>  Menuu::getMenucategoriesids()
 {
 	return menuCategoriesIds;
 }
-void  Menu::setMenucategoriesids(vector<int> menuCategoriesIds)
+void  Menuu::setMenucategoriesids(vector<int> menuCategoriesIds)
 {
 	this->menuCategoriesIds = menuCategoriesIds;
 }
-Menu  Menu::create(int id)
+Menuu  Menuu::create(int id)
 {
-	Menu m;
+	Menuu m;
 	m.setId(id);
 	return m;
 }

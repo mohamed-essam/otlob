@@ -80,6 +80,10 @@ void Restaurant::addReviewId(int Id)
 {
 	reviewsIds.push_back(Id); 
 }
+void Restaurant::setCategoriesIds(vector<int> v)
+{
+	this->categoriesIds = v;
+}
 vector<int> Restaurant::getCategoriesIds()
 {
 	return categoriesIds; 

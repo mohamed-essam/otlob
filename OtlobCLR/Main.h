@@ -31,17 +31,7 @@ namespace OtlobCLR {
 			//
 			//TODO: Add the constructor code here
 			//
-			/*ObjectsGetter::InitAll();
-			Admin x;
-			x.setEmail("ghazouly");
-			x.setAddress("Nasr");
-			x.setBirthdate("19999");
-			x.setName("ghazouly");
-			x.setPassword("a7a");
-			x.setPhone("010");
-			
-			ObjectsGetter::AddAdmin(x);
-			ObjectsGetter::saveAll();*/
+			ObjectsGetter::InitAll();
 		}
 
 	protected:
@@ -75,6 +65,7 @@ namespace OtlobCLR {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Main::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -82,10 +73,9 @@ namespace OtlobCLR {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(72, 254);
-			this->button1->Margin = System::Windows::Forms::Padding(4);
+			this->button1->Location = System::Drawing::Point(54, 206);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(219, 43);
+			this->button1->Size = System::Drawing::Size(164, 35);
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"signUp";
 			this->button1->UseVisualStyleBackColor = true;
@@ -93,10 +83,9 @@ namespace OtlobCLR {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(143, 171);
-			this->button2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button2->Location = System::Drawing::Point(107, 139);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(100, 28);
+			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 3;
 			this->button2->Text = L"UserLogin";
 			this->button2->UseVisualStyleBackColor = true;
@@ -104,10 +93,9 @@ namespace OtlobCLR {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(143, 209);
-			this->button3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button3->Location = System::Drawing::Point(107, 170);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(100, 28);
+			this->button3->Size = System::Drawing::Size(75, 23);
 			this->button3->TabIndex = 4;
 			this->button3->Text = L"AdminLogin";
 			this->button3->UseVisualStyleBackColor = true;
@@ -115,13 +103,14 @@ namespace OtlobCLR {
 			// 
 			// Main
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(379, 322);
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->ClientSize = System::Drawing::Size(284, 262);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->button3);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"Main";
 			this->Text = L"Main";
 			this->Load += gcnew System::EventHandler(this, &Main::Main_Load);

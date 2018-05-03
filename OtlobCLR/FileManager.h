@@ -6,9 +6,9 @@
 #include "Category.h"
 #include "Employee.h"
 #include "Human.h"
-#include "Menu.h"
+#include "Menuu.h"
 #include "MenuCategory.h"
-#include "MenuItem.h"
+#include "MenuItemM.h"
 #include "Order.h"
 #include "OrderItem.h"
 #include "Variation.h"
@@ -22,14 +22,14 @@ using namespace System;
 public value class FileManager
 {
 public:
-	static string *path = new string("");
+	static string *path = new string("C:\\Users\\MOody\\Desktop\\VS\\lolll\\CLR\\jsonData");
 	static void saveAdmin(vector<Admin>);
 	static void saveCategory(vector<Category>);
 	static void saveEmployee(vector<Employee>);
 	static void saveFeedback(vector<Feedback>);
-	static void saveMenu(vector<Menu>);
+	static void saveMenu(vector<Menuu>);
 	static void saveMenuCategory(vector<MenuCategory>);
-	static void saveMenuItem(vector<MenuItem>);
+	static void saveMenuItem(vector<MenuItemM>);
 	static void saveOrder(vector<Order>);
 	static void saveOrderItem(vector<OrderItem>);
 	static void saveRestaurant(vector<Restaurant>);
@@ -40,9 +40,9 @@ public:
 	static vector<Category> loadCategory();
 	static vector<Employee> loadEmployee();
 	static vector<Feedback> loadFeedback();
-	static vector<Menu> loadMenu();
+	static vector<Menuu> loadMenu();
 	static vector<MenuCategory> loadMenuCategory();
-	static vector<MenuItem> loadMenuItem();
+	static vector<MenuItemM> loadMenuItem();
 	static vector<Order> loadOrder();
 	static vector<OrderItem> loadOrderItem();
 	static vector<Restaurant> loadRestaurant();

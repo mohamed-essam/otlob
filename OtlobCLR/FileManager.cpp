@@ -104,7 +104,7 @@ void FileManager::saveFeedback(vector<Feedback> fb)
 	f << j.dump();
 	f.close();
 }
-void FileManager::saveMenu(vector<Menu> menus)
+void FileManager::saveMenu(vector<Menuu> menus)
 {
 	json j = json::array();
 	ofstream f;
@@ -141,7 +141,7 @@ void FileManager::saveMenuCategory(vector<MenuCategory> cat)
 	f << j.dump();
 	f.close();
 }
-void FileManager::saveMenuItem(vector<MenuItem> it)
+void FileManager::saveMenuItem(vector<MenuItemM> it)
 {
 	json j = json::array();
 	ofstream f;
@@ -368,7 +368,7 @@ vector<Feedback> FileManager::loadFeedback()
 		Feedback feedback;
 		feedback.setId(jj[i]["id"]);
 		feedback.setRating(jj[i]["rating"]);
-		feedback.setRestaurantid(jj[i]["restaurant"]);
+		feedback.setRestaurantid(jj[i]["restaurant_id"]);
 		feedback.setReview(jj[i]["review"]);
 		feedback.setUserid(jj[i]["user_id"]);
 		ret.push_back(feedback);
@@ -376,13 +376,13 @@ vector<Feedback> FileManager::loadFeedback()
 	return ret;
 }
 
-vector<Menu> FileManager::loadMenu()
+vector<Menuu> FileManager::loadMenu()
 {
-	json jj = readFile("Feedback.json");
-	vector<Menu> ret;
+	json jj = readFile("Menu.json");
+	vector<Menuu> ret;
 	for (int i = 0; i < jj.size(); i++)
 	{
-		Menu menu;
+		Menuu menu;
 		menu.setId(jj[i]["id"]);
 		menu.setMenucategoriesids(jsonArrayToVector(jj[i]["menu_categories_ids"]));
 		ret.push_back(menu);
@@ -405,19 +405,19 @@ vector<MenuCategory> FileManager::loadMenuCategory()
 	return ret;
 }
 
-vector<MenuItem> FileManager::loadMenuItem()
+vector<MenuItemM> FileManager::loadMenuItem()
 {
 	json jj = readFile("MenuItem.json");
-	vector<MenuItem> ret;
+	vector<MenuItemM> ret;
 	for (int i = 0; i < jj.size(); i++)
 	{
-		MenuItem menuItem;
+		MenuItemM menuItem;
 		menuItem.setId(jj[i]["id"]);
 		menuItem.setDescription(jj[i]["description"]);
 		menuItem.setName(jj[i]["name"]);
 		menuItem.setPicturepath(jj[i]["picture_path"]);
 		menuItem.setQuantity(jj[i]["quantity"]);
-		menuItem.setVariationsids(jsonArrayToVector(jj[i]["variation_ids"]));
+		menuItem.setVariationsids(jsonArrayToVector(jj[i]["variations_ids"]));
 		ret.push_back(menuItem);
 	}
 	return ret;
@@ -433,7 +433,7 @@ vector<Order> FileManager::loadOrder()
 		order.setId(jj[i]["id"]);
 		order.setAmountoff(jj[i]["amount_off"]);
 		order.setEmployeeid(jj[i]["employee_id"]);
-		order.setIscancelled(jj[i]["is_cancelled"]);
+		order.setIscancelled(jj[i]["is_canceled"]);
 		order.setOrderitemsids(jsonArrayToVector(jj[i]["order_items_ids"]));
 		order.setRating(jj[i]["rating"]);
 		order.setRestaurantid(jj[i]["restaurant_id"]);
@@ -446,7 +446,7 @@ vector<Order> FileManager::loadOrder()
 
 vector<OrderItem> FileManager::loadOrderItem()
 {
-	json jj = readFile("MenuCategory.json");
+	json jj = readFile("OrderItem.json");
 	vector<OrderItem> ret;
 	for (int i = 0; i < jj.size(); i++)
 	{
@@ -475,6 +475,7 @@ vector<Restaurant> FileManager::loadRestaurant()
 		restaurant.setPicturePath(jj[i]["picture_path"]);
 		restaurant.setRating(jj[i]["rating"]);
 		restaurant.setWorkingHours(jj[i]["working_hours"]);
+		restaurant.setCategoriesIds(jj[i]["categories_ids"]);
 		ret.push_back(restaurant);
 	}
 	return ret;
