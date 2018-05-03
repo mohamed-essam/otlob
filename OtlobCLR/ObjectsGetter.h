@@ -75,7 +75,6 @@ public:
 	static vector<MenuItemM> GetAllMenuITems();
 	static set<string> GetGov();
 	static set<string> GetAreas();
-	static vector<Employee> GetAllEmployee();
 	static void DeleteAdmin(int);
 	static void DeleteCategory(int);
 	static void DeleteEmployee(int);

@@ -125,7 +125,6 @@ namespace OtlobCLR {
 		F->Show();
 		this->Hide();
 	}
-	};
 	private: System::Void employeeButton_Click(System::Object^  sender, System::EventArgs^  e) {
 		AdminEmp^ F = gcnew AdminEmp(this);
 		F->Show();
