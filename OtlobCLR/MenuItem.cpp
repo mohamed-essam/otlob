@@ -46,7 +46,7 @@ vector<int> MenuItem::getVariationsids()
 }
 void MenuItem::setVariationsids(vector<int> variationsids)
 {
-	this->variationsIds = variationsIds;
+	this->variationsIds = variationsids;
 }
 MenuItem MenuItem::create(int id, int quantity, string name, string picturePath, string description)
 {

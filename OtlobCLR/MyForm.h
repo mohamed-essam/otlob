@@ -105,7 +105,7 @@ namespace OtlobCLR {
 			this->username->AutoSize = true;
 			this->username->Location = System::Drawing::Point(12, 23);
 			this->username->Name = L"username";
-			this->username->Size = System::Drawing::Size(73, 17);
+			this->username->Size = System::Drawing::Size(55, 13);
 			this->username->TabIndex = 1;
 			this->username->Text = L"Username";
 			// 
@@ -114,7 +114,7 @@ namespace OtlobCLR {
 			this->password->AutoSize = true;
 			this->password->Location = System::Drawing::Point(12, 74);
 			this->password->Name = L"password";
-			this->password->Size = System::Drawing::Size(69, 17);
+			this->password->Size = System::Drawing::Size(53, 13);
 			this->password->TabIndex = 2;
 			this->password->Text = L"Password";
 			// 
@@ -122,14 +122,14 @@ namespace OtlobCLR {
 			// 
 			this->usernameText->Location = System::Drawing::Point(91, 23);
 			this->usernameText->Name = L"usernameText";
-			this->usernameText->Size = System::Drawing::Size(357, 22);
+			this->usernameText->Size = System::Drawing::Size(357, 20);
 			this->usernameText->TabIndex = 3;
 			// 
 			// passwordtext
 			// 
 			this->passwordtext->Location = System::Drawing::Point(91, 69);
 			this->passwordtext->Name = L"passwordtext";
-			this->passwordtext->Size = System::Drawing::Size(357, 22);
+			this->passwordtext->Size = System::Drawing::Size(357, 20);
 			this->passwordtext->TabIndex = 4;
 			// 
 			// email
@@ -137,7 +137,7 @@ namespace OtlobCLR {
 			this->email->AutoSize = true;
 			this->email->Location = System::Drawing::Point(12, 123);
 			this->email->Name = L"email";
-			this->email->Size = System::Drawing::Size(42, 17);
+			this->email->Size = System::Drawing::Size(32, 13);
 			this->email->TabIndex = 5;
 			this->email->Text = L"Email";
 			// 
@@ -145,16 +145,15 @@ namespace OtlobCLR {
 			// 
 			this->emailtext->Location = System::Drawing::Point(91, 120);
 			this->emailtext->Name = L"emailtext";
-			this->emailtext->Size = System::Drawing::Size(357, 22);
+			this->emailtext->Size = System::Drawing::Size(357, 20);
 			this->emailtext->TabIndex = 6;
-
 			// 
 			// Phone
 			// 
 			this->Phone->AutoSize = true;
 			this->Phone->Location = System::Drawing::Point(12, 173);
 			this->Phone->Name = L"Phone";
-			this->Phone->Size = System::Drawing::Size(42, 17);
+			this->Phone->Size = System::Drawing::Size(38, 13);
 			this->Phone->TabIndex = 5;
 			this->Phone->Text = L"Phone";
 			// 
@@ -162,16 +161,15 @@ namespace OtlobCLR {
 			// 
 			this->Phonetext->Location = System::Drawing::Point(91, 173);
 			this->Phonetext->Name = L"Phonetext";
-			this->Phonetext->Size = System::Drawing::Size(357, 22);
+			this->Phonetext->Size = System::Drawing::Size(357, 20);
 			this->Phonetext->TabIndex = 6;
-			
 			// 
 			// Birthdate
 			// 
 			this->Birthdate->AutoSize = true;
 			this->Birthdate->Location = System::Drawing::Point(12, 223);
 			this->Birthdate->Name = L"Birthdate";
-			this->Birthdate->Size = System::Drawing::Size(42, 17);
+			this->Birthdate->Size = System::Drawing::Size(49, 13);
 			this->Birthdate->TabIndex = 5;
 			this->Birthdate->Text = L"Birthdate";
 			// 
@@ -179,16 +177,15 @@ namespace OtlobCLR {
 			// 
 			this->Birthdatetext->Location = System::Drawing::Point(91, 223);
 			this->Birthdatetext->Name = L"Birthdatetext";
-			this->Birthdatetext->Size = System::Drawing::Size(357, 22);
+			this->Birthdatetext->Size = System::Drawing::Size(357, 20);
 			this->Birthdatetext->TabIndex = 6;
-
 			// 
 			// Address
 			// 
 			this->Address->AutoSize = true;
 			this->Address->Location = System::Drawing::Point(12, 273);
 			this->Address->Name = L"Address";
-			this->Address->Size = System::Drawing::Size(42, 17);
+			this->Address->Size = System::Drawing::Size(45, 13);
 			this->Address->TabIndex = 5;
 			this->Address->Text = L"Address";
 			// 
@@ -196,12 +193,12 @@ namespace OtlobCLR {
 			// 
 			this->Addresstext->Location = System::Drawing::Point(91, 273);
 			this->Addresstext->Name = L"Addresstext";
-			this->Addresstext->Size = System::Drawing::Size(357, 22);
+			this->Addresstext->Size = System::Drawing::Size(357, 20);
 			this->Addresstext->TabIndex = 6;
-
 			// 
 			// MyForm
 			// 
+			this->BackColor = System::Drawing::SystemColors::HotTrack;
 			this->ClientSize = System::Drawing::Size(460, 360);
 			this->Controls->Add(this->emailtext);
 			this->Controls->Add(this->email);
@@ -217,7 +214,7 @@ namespace OtlobCLR {
 			this->Controls->Add(this->username);
 			this->Controls->Add(this->signupButton);
 			this->Name = L"MyForm";
-			this->BackColor = System::Drawing::SystemColors::HotTrack;
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -259,5 +256,7 @@ namespace OtlobCLR {
 		}
 
 	}
-	};
+	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+	}
+};
 }

@@ -107,9 +107,7 @@ namespace OtlobCLR {
 			r->Add((*v)[i].getIscancelled());
 			t->Rows->Add(r);*/
 		}
-		ArrayList ^r = gcnew ArrayList();
-		r->Add()
-		dataGridView1->DataSource = t;
+		ArrayList ^r = gcnew ArrayList();		
 	}
 	};
 }

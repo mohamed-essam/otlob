@@ -354,6 +354,7 @@ vector<Employee> FileManager::loadEmployee()
 		employee.setBirthdate(jj[i]["birthdate"]);
 		employee.setId(jj[i]["id"]);
 		employee.setName(jj[i]["name"]);
+		employee.setVehicleNumber(jj[i]["vehicle_number"]);
 		ret.push_back(employee);
 	}
 	return ret;
