@@ -1,5 +1,6 @@
 #pragma once
 #include "CategoryForm.h";
+#include "ViewOrders.h"
 namespace OtlobCLR {
 
 	using namespace System;
@@ -99,6 +100,7 @@ namespace OtlobCLR {
 			this->button3->TabIndex = 2;
 			this->button3->Text = L"View My Order";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &HomePage::button3_Click);
 			// 
 			// button5
 			// 
@@ -148,17 +150,17 @@ namespace OtlobCLR {
 
 		}
 
-		void ee(Object^ senedr, EventArgs^ e)
+		/*void ee(Object^ senedr, EventArgs^ e)
 		{
 			this->Show();
-		}
+		}*/
 #pragma endregion
 	private: System::Void HomePage_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 		CategoryForm^ m = gcnew CategoryForm(userId, G, A);
 		m->Show();
-		m->Closed += gcnew EventHandler(ee);
+		//m->Closed += gcnew EventHandler(ee);
 		this->Hide();
 	}
 	private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -172,6 +174,11 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 	RestaurantsForm^ mf = gcnew RestaurantsForm(userId,G,A,-1);
+	mf->Show();
+	this->Hide();
+}
+private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+	ViewOrders ^ mf = gcnew ViewOrders(userId);
 	mf->Show();
 	this->Hide();
 }

@@ -69,18 +69,18 @@ namespace OtlobCLR {
 			// 
 			// passtext
 			// 
-			this->passtext->Location = System::Drawing::Point(92, 67);
-			this->passtext->Margin = System::Windows::Forms::Padding(2);
+			this->passtext->Location = System::Drawing::Point(123, 82);
+			this->passtext->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->passtext->Name = L"passtext";
-			this->passtext->Size = System::Drawing::Size(217, 20);
+			this->passtext->Size = System::Drawing::Size(288, 22);
 			this->passtext->TabIndex = 9;
 			// 
 			// emailtext
 			// 
-			this->emailtext->Location = System::Drawing::Point(92, 20);
-			this->emailtext->Margin = System::Windows::Forms::Padding(2);
+			this->emailtext->Location = System::Drawing::Point(123, 25);
+			this->emailtext->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->emailtext->Name = L"emailtext";
-			this->emailtext->Size = System::Drawing::Size(217, 20);
+			this->emailtext->Size = System::Drawing::Size(288, 22);
 			this->emailtext->TabIndex = 8;
 			// 
 			// password
@@ -88,10 +88,9 @@ namespace OtlobCLR {
 			this->password->AutoSize = true;
 			this->password->BackColor = System::Drawing::SystemColors::ControlText;
 			this->password->ForeColor = System::Drawing::Color::White;
-			this->password->Location = System::Drawing::Point(9, 71);
-			this->password->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->password->Location = System::Drawing::Point(12, 87);
 			this->password->Name = L"password";
-			this->password->Size = System::Drawing::Size(53, 13);
+			this->password->Size = System::Drawing::Size(69, 17);
 			this->password->TabIndex = 7;
 			this->password->Text = L"Password";
 			// 
@@ -100,19 +99,18 @@ namespace OtlobCLR {
 			this->email->AutoSize = true;
 			this->email->BackColor = System::Drawing::SystemColors::ControlText;
 			this->email->ForeColor = System::Drawing::Color::White;
-			this->email->Location = System::Drawing::Point(10, 24);
-			this->email->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->email->Location = System::Drawing::Point(13, 30);
 			this->email->Name = L"email";
-			this->email->Size = System::Drawing::Size(32, 13);
+			this->email->Size = System::Drawing::Size(42, 17);
 			this->email->TabIndex = 6;
 			this->email->Text = L"Email";
 			// 
 			// login
 			// 
-			this->login->Location = System::Drawing::Point(70, 221);
-			this->login->Margin = System::Windows::Forms::Padding(2);
+			this->login->Location = System::Drawing::Point(93, 272);
+			this->login->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->login->Name = L"login";
-			this->login->Size = System::Drawing::Size(159, 40);
+			this->login->Size = System::Drawing::Size(212, 49);
 			this->login->TabIndex = 5;
 			this->login->Text = L"Login";
 			this->login->UseVisualStyleBackColor = true;
@@ -120,25 +118,27 @@ namespace OtlobCLR {
 			// 
 			// Userlogin
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(317, 280);
+			this->ClientSize = System::Drawing::Size(423, 345);
 			this->Controls->Add(this->passtext);
 			this->Controls->Add(this->emailtext);
 			this->Controls->Add(this->password);
 			this->Controls->Add(this->email);
 			this->Controls->Add(this->login);
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"Userlogin";
 			this->Text = L"Userlogin";
+			this->Load += gcnew System::EventHandler(this, &Userlogin::Userlogin_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void login_Click(System::Object^  sender, System::EventArgs^  e) {
+		
 		String^ t1 = emailtext->Text;
 		String^ t2 = passtext->Text;
 		ObjectsGetter::initUsers();
@@ -157,5 +157,7 @@ namespace OtlobCLR {
 			MessageBox::Show(x);
 		}
 	}
+private: System::Void Userlogin_Load(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }

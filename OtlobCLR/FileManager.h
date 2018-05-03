@@ -22,7 +22,7 @@ using namespace System;
 public value class FileManager
 {
 public:
-	static string *path = new string("");
+	static string *path = new string("D:\\ootlb\\jsonData");
 	static void saveAdmin(vector<Admin>);
 	static void saveCategory(vector<Category>);
 	static void saveEmployee(vector<Employee>);
