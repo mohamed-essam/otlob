@@ -147,18 +147,12 @@ namespace OtlobCLR {
 			this->ResumeLayout(false);
 
 		}
-
-		void ee(Object^ senedr, EventArgs^ e)
-		{
-			this->Show();
-		}
 #pragma endregion
 	private: System::Void HomePage_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 		CategoryForm^ m = gcnew CategoryForm(userId, G, A);
 		m->Show();
-		m->Closed += gcnew EventHandler(ee);
 		this->Hide();
 	}
 	private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {

@@ -108,6 +108,12 @@
     <ClCompile Include="CatIteam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CreatOrderForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OrderItems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h">
@@ -206,6 +212,12 @@
     <ClInclude Include="CatIteam.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CreatOrderForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OrderItems.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Main.resx">
@@ -242,6 +254,12 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="RestaurantsForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoryForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CatIteam.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
