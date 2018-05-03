@@ -136,6 +136,7 @@
     <ClCompile Include="CategoryForm.cpp" />
     <ClCompile Include="CatIteam.cpp" />
     <ClCompile Include="EmpData.cpp" />
+    <ClCompile Include="CreatOrderForm.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="Feedback.cpp" />
     <ClCompile Include="FileManager.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="ObjectsGetter.cpp" />
     <ClCompile Include="Order.cpp" />
     <ClCompile Include="OrderItem.cpp" />
+    <ClCompile Include="OrderItems.cpp" />
     <ClCompile Include="Restaurant.cpp" />
     <ClCompile Include="RestaurantItem.cpp" />
     <ClCompile Include="RestaurantsForm.cpp" />
@@ -191,6 +193,9 @@
     <ClInclude Include="EmpData.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CreatOrderForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Employee.h" />
     <ClInclude Include="Feedback.h" />
     <ClInclude Include="FileManager.h" />
@@ -220,6 +225,9 @@
     <ClInclude Include="ObjectsGetter.h" />
     <ClInclude Include="Order.h" />
     <ClInclude Include="OrderItem.h" />
+    <ClInclude Include="OrderItems.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="Restaurant.h" />
     <ClInclude Include="RestaurantItem.h">
       <FileType>CppControl</FileType>
@@ -265,6 +273,9 @@
     <EmbeddedResource Include="CatIteam.resx">
       <DependentUpon>CatIteam.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreatOrderForm.resx">
+      <DependentUpon>CreatOrderForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GetAddress.resx">
       <DependentUpon>GetAddress.h</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderItems.resx">
+      <DependentUpon>OrderItems.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RestaurantItem.resx">
       <DependentUpon>RestaurantItem.h</DependentUpon>

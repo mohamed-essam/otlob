@@ -1,6 +1,6 @@
 #pragma once
 #include <msclr\marshal_cppstd.h>
-#include "ObjectsGetter.h"
+#include "CreatOrderForm.h"
 #include "listitem.h"
 #include <set>
 
@@ -125,7 +125,11 @@ namespace OtlobCLR {
 		
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-		vector<CartItem> vec = Cart::getItems();
+		//vector<CartItem> vec = Cart::getItems();
+		CreatOrderForm^ m = gcnew CreatOrderForm(UID);
+		m->Show();
+		this->Hide();
 	}
+			
 	};
 }
