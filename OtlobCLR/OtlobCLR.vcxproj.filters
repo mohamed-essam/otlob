@@ -29,6 +29,13 @@
     <ClCompile Include="Userlogin.cpp" />
     <ClCompile Include="Variation.cpp" />
     <ClCompile Include="AdminCheckItemsQuantity.cpp" />
+    <ClCompile Include="AdminEmp.cpp" />
+    <ClCompile Include="CategoryForm.cpp" />
+    <ClCompile Include="CatIteam.cpp" />
+    <ClCompile Include="EmpData.cpp" />
+    <ClCompile Include="GetAddress.cpp" />
+    <ClCompile Include="RestaurantItem.cpp" />
+    <ClCompile Include="RestaurantsForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
@@ -60,6 +67,13 @@
     <ClInclude Include="MenuItemM.h" />
     <ClInclude Include="Menuu.h" />
     <ClInclude Include="AdminCheckItemsQuantity.h" />
+    <ClInclude Include="AdminEmp.h" />
+    <ClInclude Include="CategoryForm.h" />
+    <ClInclude Include="CatIteam.h" />
+    <ClInclude Include="EmpData.h" />
+    <ClInclude Include="GetAddress.h" />
+    <ClInclude Include="RestaurantItem.h" />
+    <ClInclude Include="RestaurantsForm.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AdminListOrders.resx" />
@@ -72,6 +86,14 @@
     <EmbeddedResource Include="MenuFrom.resx" />
     <EmbeddedResource Include="MyForm.resx" />
     <EmbeddedResource Include="Userlogin.resx" />
+    <EmbeddedResource Include="AdminCheckItemsQuantity.resx" />
+    <EmbeddedResource Include="AdminEmp.resx" />
+    <EmbeddedResource Include="CategoryForm.resx" />
+    <EmbeddedResource Include="CatIteam.resx" />
+    <EmbeddedResource Include="GetAddress.resx" />
+    <EmbeddedResource Include="EmpData.resx" />
+    <EmbeddedResource Include="RestaurantItem.resx" />
+    <EmbeddedResource Include="RestaurantsForm.resx" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Admin.cpp">
@@ -150,21 +172,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CartItem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GetAddress.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RestaurantsForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RestaurantItem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CategoryForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CatIteam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -250,21 +257,6 @@
     <ClInclude Include="MenuItemM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GetAddress.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RestaurantsForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RestaurantItem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CategoryForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CatIteam.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Main.resx">
@@ -292,15 +284,6 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="Userlogin.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GetAddress.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RestaurantItem.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RestaurantsForm.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

@@ -397,6 +397,34 @@ vector<Order> ObjectsGetter::GetOrderByUser(User u)
 	}
 	return vec;
 }
+set<string> ObjectsGetter::GetGov()
+{
+	set<string> st;
+	for (auto it = Restaurants.begin(); it != Restaurants.end(); it++)
+	{
+		st.insert(it->second.getGovernorate());
+	}
+	return st;
+}
+set<string> ObjectsGetter::GetAreas()
+{
+	set<string> st;
+	for (auto it = Restaurants.begin(); it != Restaurants.end(); it++)
+	{
+		st.insert(it->second.getArea());
+	}
+	return st;
+}
+vector<Employee> ObjectsGetter::GetAllEmployee()
+{
+	vector<Employee>vec;
+	for (auto it = Employees.begin(); it != Employees.end(); it++)
+	{
+		vec.push_back(it->second);
+	}
+
+	return vec;
+}
 #pragma endregion Get
 #pragma region Delete
 void ObjectsGetter::DeleteAdmin(int id)
@@ -540,6 +568,11 @@ void ObjectsGetter::AddEmployee(Employee x)
 	Ids["employee"] = ++id;
 }
 
+void ObjectsGetter::AddEmployeeById(Employee x)
+{
+	Employees[x.getId()] = x;
+}
+
 void ObjectsGetter::AddFeedBack(Feedback x)
 {
 	int id = Ids["feedback"];
@@ -633,6 +666,12 @@ set<string> ObjectsGetter::GetAreas()
 		st.insert(it->second.getArea());
 	}
 	return st;
+vector<MenuItem> ObjectsGetter::GetAllMenuITems()
+{
+	vector<MenuItem>vec;
+	for (auto it = MenuItems.begin(); it != MenuItems.end(); it++)
+		vec.push_back(it->second);
+	return vec;
 }
 
 #pragma endregion

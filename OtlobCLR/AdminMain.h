@@ -1,6 +1,7 @@
 #pragma once
 #include "AdminShowOrders.h"
 #include "AdminCheckItemsQuantity.h"
+#include "AdminEmp.h"
 namespace OtlobCLR {
 
 	using namespace System;
@@ -64,9 +65,10 @@ namespace OtlobCLR {
 			// 
 			// ShowAllOrders
 			// 
-			this->ShowAllOrders->Location = System::Drawing::Point(109, 93);
+			this->ShowAllOrders->Location = System::Drawing::Point(82, 76);
+			this->ShowAllOrders->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->ShowAllOrders->Name = L"ShowAllOrders";
-			this->ShowAllOrders->Size = System::Drawing::Size(155, 52);
+			this->ShowAllOrders->Size = System::Drawing::Size(116, 42);
 			this->ShowAllOrders->TabIndex = 0;
 			this->ShowAllOrders->Text = L"Show All Orders";
 			this->ShowAllOrders->UseVisualStyleBackColor = true;
@@ -74,18 +76,21 @@ namespace OtlobCLR {
 			// 
 			// employeeButton
 			// 
-			this->employeeButton->Location = System::Drawing::Point(109, 178);
+			this->employeeButton->Location = System::Drawing::Point(82, 145);
+			this->employeeButton->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->employeeButton->Name = L"employeeButton";
-			this->employeeButton->Size = System::Drawing::Size(155, 52);
+			this->employeeButton->Size = System::Drawing::Size(116, 42);
 			this->employeeButton->TabIndex = 1;
 			this->employeeButton->Text = L"Show/Add/Remove Employee";
 			this->employeeButton->UseVisualStyleBackColor = true;
+			this->employeeButton->Click += gcnew System::EventHandler(this, &AdminMain::employeeButton_Click);
 			// 
 			// itemsButton
 			// 
-			this->itemsButton->Location = System::Drawing::Point(109, 268);
+			this->itemsButton->Location = System::Drawing::Point(82, 218);
+			this->itemsButton->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->itemsButton->Name = L"itemsButton";
-			this->itemsButton->Size = System::Drawing::Size(155, 52);
+			this->itemsButton->Size = System::Drawing::Size(116, 42);
 			this->itemsButton->TabIndex = 2;
 			this->itemsButton->Text = L"Check Items Quantity";
 			this->itemsButton->UseVisualStyleBackColor = true;
@@ -93,12 +98,13 @@ namespace OtlobCLR {
 			// 
 			// AdminMain
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(377, 419);
+			this->ClientSize = System::Drawing::Size(283, 340);
 			this->Controls->Add(this->itemsButton);
 			this->Controls->Add(this->employeeButton);
 			this->Controls->Add(this->ShowAllOrders);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"AdminMain";
 			this->Text = L"AdminMain";
 			this->Load += gcnew System::EventHandler(this, &AdminMain::AdminMain_Load);
@@ -120,4 +126,10 @@ namespace OtlobCLR {
 		this->Hide();
 	}
 	};
+	private: System::Void employeeButton_Click(System::Object^  sender, System::EventArgs^  e) {
+		AdminEmp^ F = gcnew AdminEmp(this);
+		F->Show();
+		//this->Hide();
+	}
+};
 }

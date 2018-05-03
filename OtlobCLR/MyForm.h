@@ -230,6 +230,7 @@ namespace OtlobCLR {
 			this->Controls->Add(this->username);
 			this->Controls->Add(this->signupButton);
 			this->Name = L"MyForm";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -274,5 +275,7 @@ namespace OtlobCLR {
 		}
 
 	}
-	};
+	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+	}
+};
 }
