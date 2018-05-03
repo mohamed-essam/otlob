@@ -673,5 +673,15 @@ vector<MenuItem> ObjectsGetter::GetAllMenuITems()
 		vec.push_back(it->second);
 	return vec;
 }
+vector<Employee> ObjectsGetter::GetAllEmployee()
+{
+	vector<Employee>vec;
+	for (auto it = Employees.begin(); it != Employees.end(); it++)
+	{
+		vec.push_back(it->second);
+	}
+
+	return vec;
+}
 
 #pragma endregion

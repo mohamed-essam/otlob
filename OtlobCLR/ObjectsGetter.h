@@ -69,6 +69,7 @@ public:
 	static vector<Order> GetAllOrders();
 	static vector<Order> GetOrderByRange(long long);
 	static vector<Category> GetAllCategories(string,string);
+	static vector<Employee> GetAllEmployee();
 	static vector<Restaurant> ShowRestaurantByCategory(Category);
 	static vector<Order>GetOrderByUser(User);
 	static vector<MenuItemM> GetAllMenuITems();

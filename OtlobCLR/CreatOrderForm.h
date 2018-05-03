@@ -18,13 +18,15 @@ namespace OtlobCLR {
 	{
 	public:
 		property int UID;
-		CreatOrderForm(int usrId)
+		property int RID;
+		CreatOrderForm(int usrId,int rid)
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
 			UID = usrId;
+			RID = rid;
 			load();
 		}
 
@@ -80,6 +82,7 @@ namespace OtlobCLR {
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Visa";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &CreatOrderForm::button1_Click);
 			// 
 			// button2
 			// 
@@ -89,6 +92,7 @@ namespace OtlobCLR {
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Cash";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &CreatOrderForm::button2_Click);
 			// 
 			// label1
 			// 
@@ -136,5 +140,73 @@ namespace OtlobCLR {
 			label1->Text = pp;
 		}
 #pragma endregion
-	};
+	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+		vector<Employee> vec = ObjectsGetter::GetAllEmployee();
+		Order o;
+		vector<Order> ord = ObjectsGetter::GetAllOrders();
+		int idd = ord.size() + 1;
+		o.setId(idd);
+		o.setUserid(UID);
+		o.setRestaurantid(RID);
+		o.setTime(45);
+		vector<CartItem> vecc = Cart::getItems();
+		vector<int>items;
+		for (auto i : vecc)
+		{
+			Variation v = ObjectsGetter::GetVaritation(i.getVariationId());
+			MenuItemM m = ObjectsGetter::GetMenuIteam(v.getMenuitemid());
+			items.push_back(m.getId());
+		}
+		o.setOrderitemsids(items);
+		bool ff = 0;
+		for (auto i : vec)
+		{
+			if (i.canTakeOrder())
+			{
+				o.setEmployeeid(i.getId());
+				ObjectsGetter::AddOrder(o);
+				i.addOrderId(idd);
+				MessageBox::Show("Yout order will arive in at most 45 min.");
+				ff = 1;
+				break;
+			}
+		}
+		if (!ff)
+			MessageBox::Show("Sorry We have no employees right now!");
+	}
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+	vector<Employee> vec = ObjectsGetter::GetAllEmployee();
+	Order o;
+	vector<Order> ord = ObjectsGetter::GetAllOrders();
+	int idd = ord.size() + 1;
+	o.setId(idd);
+	o.setUserid(UID);
+	o.setRestaurantid(RID);
+	o.setTime(45);
+	vector<CartItem> vecc = Cart::getItems();
+	vector<int>items;
+	for (auto i : vecc)
+	{
+		Variation v = ObjectsGetter::GetVaritation(i.getVariationId());
+		MenuItemM m = ObjectsGetter::GetMenuIteam(v.getMenuitemid());
+		items.push_back(m.getId());
+	}
+	o.setOrderitemsids(items);
+	bool ff = 0;
+	for (auto i : vec)
+	{
+		if (i.canTakeOrder())
+		{
+			o.setEmployeeid(i.getId());
+			ObjectsGetter::AddOrder(o);
+			i.addOrderId(idd);
+			MessageBox::Show("Yout order will arive in at most 45 min.");
+			ff = 1;
+			break;
+		}
+	}
+	if (!ff)
+		MessageBox::Show("Sorry We have no employees right now!");
+}
+};
 }
