@@ -20,6 +20,7 @@ namespace OtlobCLR {
 	{
 	public:
 		property int UID;
+		property int RID;
 		MenuFrom(Restaurant r,int uid)
 		{
 			InitializeComponent();
@@ -27,6 +28,7 @@ namespace OtlobCLR {
 			//TODO: Add the constructor code here
 			//
 			UID = uid;
+			RID = r.getId();
 			Menuu u = ObjectsGetter::GetMenu(r.getMenuId());
 			loadMenu(u);
 		}
@@ -126,7 +128,7 @@ namespace OtlobCLR {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 		//vector<CartItem> vec = Cart::getItems();
-		CreatOrderForm^ m = gcnew CreatOrderForm(UID);
+		CreatOrderForm^ m = gcnew CreatOrderForm(UID,RID);
 		m->Show();
 		this->Hide();
 	}
