@@ -43,6 +43,13 @@ namespace OtlobCLR {
 	private: System::Windows::Forms::TextBox^  textBox1;
 	private: System::Windows::Forms::DateTimePicker^  dateTimePicker1;
 
+
+
+
+
+
+
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -91,7 +98,7 @@ namespace OtlobCLR {
 			// 
 			// dateTimePicker1
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(128, 31);
+			this->dateTimePicker1->Location = System::Drawing::Point(128, 41);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(200, 22);
 			this->dateTimePicker1->TabIndex = 3;
@@ -118,14 +125,24 @@ namespace OtlobCLR {
 		int id = Convert::ToInt32(s);
 		User u = ObjectsGetter::GetUser(id);
 		vector<Order> v = ObjectsGetter::GetOrderByUser(u);
-		MessageBox::Show(v.size().ToString());
 		AdminListOrders^ F = gcnew AdminListOrders(&v);
 		F->Show();
 		this->Hide();
 	}
 	private: System::Void dateButton_Click(System::Object^  sender, System::EventArgs^  e) {
-		DateTime tt = dateTimePicker1->Value;
+		DateTime^ T = dateTimePicker1->Value;
 		struct tm t = { 0 };
+		t.tm_year = T->Year - 1900;
+		t.tm_hour = T->Hour;
+		t.tm_mday = T->Day;
+		t.tm_min = T->Minute;
+		t.tm_mon = T->Month - 1;
+		t.tm_sec = T->Second;
+		long long tt = mktime(&t);
+		vector<Order> v = ObjectsGetter::GetOrderByRange(tt);
+		AdminListOrders^ F = gcnew AdminListOrders(&v);
+		F->Show();
+		this->Hide();
 	}
 	};
 }

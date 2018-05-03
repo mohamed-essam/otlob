@@ -1,5 +1,6 @@
 #pragma once
 #include "AdminShowOrders.h"
+#include "AdminCheckItemsQuantity.h"
 namespace OtlobCLR {
 
 	using namespace System;
@@ -88,6 +89,7 @@ namespace OtlobCLR {
 			this->itemsButton->TabIndex = 2;
 			this->itemsButton->Text = L"Check Items Quantity";
 			this->itemsButton->UseVisualStyleBackColor = true;
+			this->itemsButton->Click += gcnew System::EventHandler(this, &AdminMain::itemsButton_Click);
 			// 
 			// AdminMain
 			// 
@@ -108,6 +110,12 @@ namespace OtlobCLR {
 	}
 	private: System::Void ShowAllOrders_Click(System::Object^  sender, System::EventArgs^  e) {
 		AdminShowOrders^ F = gcnew AdminShowOrders();
+		F->Show();
+		this->Hide();
+	}
+	private: System::Void itemsButton_Click(System::Object^  sender, System::EventArgs^  e) {
+		vector<MenuItemM> v = ObjectsGetter::GetAllMenuITems();
+		AdminCheckItemsQuantity ^F = gcnew AdminCheckItemsQuantity(&v);
 		F->Show();
 		this->Hide();
 	}

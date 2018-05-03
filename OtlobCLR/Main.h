@@ -27,6 +27,7 @@ namespace OtlobCLR {
 	public:
 		Main(void)
 		{
+			ObjectsGetter::InitAll();
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here

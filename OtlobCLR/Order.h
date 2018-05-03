@@ -8,7 +8,6 @@
 #include <chrono>
 #include "OrderItem.h"
 #include "Variation.h"
-
 using namespace std;
 
 class Order {
@@ -33,8 +32,8 @@ public:
 	void setEmployeeid(int);
 	float getRating();
 	void setRating(float);
-	long long getTimeInSeconds();
 	long long getTime();
+	long long getTimeInSeconds();
 	void setTime(long long);
 	vector<int> getOrderitemsids();
 	void setOrderitemsids(vector<int>);

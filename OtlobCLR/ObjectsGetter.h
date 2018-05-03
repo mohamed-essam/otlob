@@ -15,8 +15,8 @@ public:
 	static map<int, Category>Categories;
 	static map<int, Employee>Employees;
 	static map<int, Feedback>Feedbacks;
-	static map<int, Menu>Menus;
-	static map<int, MenuItem>MenuItems;
+	static map<int, Menuu>Menus;
+	static map<int, MenuItemM>MenuItems;
 	static map<int, Order>Orders;
 	static map<int, OrderItem>OrderItems;
 	static map<int, MenuCategory>MenuCategories;
@@ -58,8 +58,8 @@ public:
 	static Employee GetEmployee(int);
 	static Feedback GetFeedBack(int);
 	static MenuCategory GetMenuCategory(int);
-	static Menu GetMenu(int);
-	static MenuItem GetMenuIteam(int);
+	static Menuu GetMenu(int);
+	static MenuItemM GetMenuIteam(int);
 	static Order GetOrder(int);
 	static OrderItem GetOrderItem(int);
 	static User GetUser(int);
@@ -70,6 +70,7 @@ public:
 	static vector<Category> GetAllCategories();
 	static vector<Restaurant> ShowRestaurantByCategory(Category);
 	static vector<Order>GetOrderByUser(User);
+	static vector<MenuItemM> ObjectsGetter::GetAllMenuITems();
 	static void DeleteAdmin(int);
 	static void DeleteCategory(int);
 	static void DeleteEmployee(int);
@@ -84,8 +85,8 @@ public:
 	static void DeleteRestaurant(int);
 	static void AddAdmin(Admin x);
 	static void AddCategory(Category x);
-	static void AddMenu(Menu x);
-	static void AddMenuIteam(MenuItem x);
+	static void AddMenu(Menuu x);
+	static void AddMenuIteam(MenuItemM x);
 	static void AddMenuCategory(MenuCategory x);
 	static void AddOrder(Order x);
 	static void AddOrderItem(OrderItem x);

@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="AdminCheckItemsQuantity.cpp" />
     <ClCompile Include="AdminListOrders.cpp" />
     <ClCompile Include="Adminlogin.cpp" />
     <ClCompile Include="AdminMain.cpp" />
@@ -153,6 +154,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="AdminCheckItemsQuantity.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AdminListOrders.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -182,12 +186,12 @@
     <ClInclude Include="Main.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Menu.h" />
+    <ClInclude Include="Menuu.h" />
     <ClInclude Include="MenuCategory.h" />
     <ClInclude Include="MenuFrom.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="MenuItem.h" />
+    <ClInclude Include="MenuItemM.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -209,6 +213,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdminCheckItemsQuantity.resx">
+      <DependentUpon>AdminCheckItemsQuantity.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminListOrders.resx">
       <DependentUpon>AdminListOrders.h</DependentUpon>
     </EmbeddedResource>

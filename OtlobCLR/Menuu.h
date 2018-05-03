@@ -8,17 +8,17 @@
 
 using namespace std;
 
-class Menu {
+class Menuu {
 private:
 	int id;
 	vector<int> menuCategoriesIds;
 public:
-	Menu() {};
+	Menuu() {};
 	int getId();
 	void setId(int);
 	vector<int> getMenucategoriesids();
 	void setMenucategoriesids(vector<int> menuCategoriesIds);
-	static Menu create(int id);
-	~Menu() {};
+	static Menuu create(int id);
+	~Menuu() {};
 };
 #endif // !MENU_H

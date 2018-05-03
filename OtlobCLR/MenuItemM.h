@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class MenuItem {
+class MenuItemM {
 private:
 	int id;
 	int quantity;
@@ -30,7 +30,7 @@ public:
 	void setDescription(string description);
 	vector<int> getVariationsids();
 	void setVariationsids(vector<int> variationsids);
-	static MenuItem create(int id, int quantity, string name, string picturePath, string description);
+	static MenuItemM create(int id, int quantity, string name, string picturePath, string description);
 	//void destroy();
 	// ObjectsGetter::DeleteMenuIteam(M.getId()); 
 	bool canOrder();

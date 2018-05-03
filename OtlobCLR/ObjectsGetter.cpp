@@ -5,8 +5,8 @@ map<int, Admin> ObjectsGetter::Admins = {};
 map<int, Category>ObjectsGetter::Categories = {};
 map<int, Employee>ObjectsGetter::Employees = {};
 map<int, Feedback>ObjectsGetter::Feedbacks = {};
-map<int, Menu>ObjectsGetter::Menus = {};
-map<int, MenuItem>ObjectsGetter::MenuItems = {};
+map<int, Menuu>ObjectsGetter::Menus = {};
+map<int, MenuItemM>ObjectsGetter::MenuItems = {};
 map<int, Order>ObjectsGetter::Orders = {};
 map<int, OrderItem>ObjectsGetter::OrderItems = {};
 map<int, MenuCategory>ObjectsGetter::MenuCategories = {};
@@ -81,14 +81,14 @@ void ObjectsGetter::saveMenuCategorys()
 }
 void ObjectsGetter::saveMenus()
 {
-	vector<Menu>vec;
+	vector<Menuu>vec;
 	for (auto it = Menus.begin(); it != Menus.end(); it++)
 		vec.push_back(it->second);
 	FileManager::saveMenu(vec);
 }
 void ObjectsGetter::saveMenuItems()
 {
-	vector<MenuItem>vec;
+	vector<MenuItemM>vec;
 	for (auto it = MenuItems.begin(); it != MenuItems.end(); it++)
 		vec.push_back(it->second);
 	FileManager::saveMenuItem(vec);
@@ -192,7 +192,7 @@ void ObjectsGetter::initMenuCategorys()
 }
 void ObjectsGetter::initMenus()
 {
-	vector<Menu> menus = FileManager::loadMenu();
+	vector<Menuu> menus = FileManager::loadMenu();
 	for (auto i : menus)
 	{
 		(Menus)[i.getId()] = i;
@@ -200,7 +200,7 @@ void ObjectsGetter::initMenus()
 }
 void ObjectsGetter::initMenuIteams()
 {
-	vector<MenuItem> menuItems = FileManager::loadMenuItem();
+	vector<MenuItemM> menuItems = FileManager::loadMenuItem();
 	for (auto i : menuItems)
 	{
 		(MenuItems)[i.getId()] = i;
@@ -267,7 +267,13 @@ User ObjectsGetter::GetUserByEmailAndPassword(string email, string pass)
 	}
 	throw new exception("User not found");
 }
-
+vector<MenuItemM> ObjectsGetter::GetAllMenuITems()
+{
+	vector<MenuItemM>vec;
+	for (auto it = MenuItems.begin(); it != MenuItems.end(); it++)
+		vec.push_back(it->second);
+	return vec;
+}
 Admin ObjectsGetter::GetAdmin(int id)
 {
 
@@ -278,12 +284,12 @@ Category ObjectsGetter::GetCategory(int id)
 	return (Categories)[id];
 }
 
-Menu ObjectsGetter::GetMenu(int id)
+Menuu ObjectsGetter::GetMenu(int id)
 {
 	return (Menus)[id];
 }
 
-MenuItem ObjectsGetter::GetMenuIteam(int id)
+MenuItemM ObjectsGetter::GetMenuIteam(int id)
 {
 	return (MenuItems)[id];
 }
@@ -457,7 +463,7 @@ void ObjectsGetter::AddCategory(Category x)
 	Ids["category"] = ++id;
 }
 
-void ObjectsGetter::AddMenu(Menu x)
+void ObjectsGetter::AddMenu(Menuu x)
 {
 	int id = Ids["menu"];
 	x.setId(id);
@@ -465,7 +471,7 @@ void ObjectsGetter::AddMenu(Menu x)
 	Ids["menu"] = ++id;
 }
 
-void ObjectsGetter::AddMenuIteam(MenuItem x)
+void ObjectsGetter::AddMenuIteam(MenuItemM x)
 {
 	int id = Ids["menu_item"];
 	x.setId(id);

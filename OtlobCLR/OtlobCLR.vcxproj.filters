@@ -1,206 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="AdminListOrders.cpp" />
+    <ClCompile Include="Adminlogin.cpp" />
+    <ClCompile Include="AdminMain.cpp" />
+    <ClCompile Include="AdminShowOrders.cpp" />
+    <ClCompile Include="Cart.cpp" />
+    <ClCompile Include="CartItem.cpp" />
+    <ClCompile Include="Category.cpp" />
+    <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="Feedback.cpp" />
+    <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="HomePage.cpp" />
+    <ClCompile Include="Human.cpp" />
+    <ClCompile Include="listitem.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuCategory.cpp" />
+    <ClCompile Include="MenuFrom.cpp" />
+    <ClCompile Include="MenuItem.cpp" />
+    <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="ObjectsGetter.cpp" />
+    <ClCompile Include="Order.cpp" />
+    <ClCompile Include="OrderItem.cpp" />
+    <ClCompile Include="Restaurant.cpp" />
+    <ClCompile Include="User.cpp" />
+    <ClCompile Include="Userlogin.cpp" />
+    <ClCompile Include="Variation.cpp" />
+    <ClCompile Include="AdminCheckItemsQuantity.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Admin.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Category.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Employee.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Feedback.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FileManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Human.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuCategory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuItem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectsGetter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Order.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OrderItem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Restaurant.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="User.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Variation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MyForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HomePage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Adminlogin.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AdminMain.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AdminShowOrders.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Userlogin.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="listitem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuFrom.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CartItem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-<<<<<<< Updated upstream
-=======
-    <ClCompile Include="AdminListOrders.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
->>>>>>> Stashed changes
+    <ClInclude Include="Admin.h" />
+    <ClInclude Include="AdminListOrders.h" />
+    <ClInclude Include="Adminlogin.h" />
+    <ClInclude Include="AdminMain.h" />
+    <ClInclude Include="AdminShowOrders.h" />
+    <ClInclude Include="Cart.h" />
+    <ClInclude Include="CartItem.h" />
+    <ClInclude Include="Category.h" />
+    <ClInclude Include="Employee.h" />
+    <ClInclude Include="Feedback.h" />
+    <ClInclude Include="FileManager.h" />
+    <ClInclude Include="HomePage.h" />
+    <ClInclude Include="Human.h" />
+    <ClInclude Include="json.hpp" />
+    <ClInclude Include="listitem.h" />
+    <ClInclude Include="Main.h" />
+    <ClInclude Include="MenuCategory.h" />
+    <ClInclude Include="MenuFrom.h" />
+    <ClInclude Include="MyForm.h" />
+    <ClInclude Include="ObjectsGetter.h" />
+    <ClInclude Include="Order.h" />
+    <ClInclude Include="OrderItem.h" />
+    <ClInclude Include="Restaurant.h" />
+    <ClInclude Include="User.h" />
+    <ClInclude Include="Userlogin.h" />
+    <ClInclude Include="Variation.h" />
+    <ClInclude Include="MenuItemM.h" />
+    <ClInclude Include="Menuu.h" />
+    <ClInclude Include="AdminCheckItemsQuantity.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Admin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Category.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Employee.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Feedback.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FileManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Human.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="json.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuCategory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuItem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectsGetter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Order.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OrderItem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Restaurant.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="User.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Variation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Main.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MyForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HomePage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Adminlogin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AdminMain.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AdminShowOrders.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Userlogin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="listitem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuFrom.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cart.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CartItem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< Updated upstream
-=======
-    <ClInclude Include="AdminListOrders.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
->>>>>>> Stashed changes
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Main.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HomePage.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyForm.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Adminlogin.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
+    <EmbeddedResource Include="AdminListOrders.resx" />
+    <EmbeddedResource Include="Adminlogin.resx" />
+    <EmbeddedResource Include="AdminMain.resx" />
+    <EmbeddedResource Include="AdminShowOrders.resx" />
+    <EmbeddedResource Include="HomePage.resx" />
+    <EmbeddedResource Include="listitem.resx" />
+    <EmbeddedResource Include="Main.resx" />
+    <EmbeddedResource Include="MenuFrom.resx" />
+    <EmbeddedResource Include="MyForm.resx" />
+    <EmbeddedResource Include="Userlogin.resx" />
   </ItemGroup>
 </Project>

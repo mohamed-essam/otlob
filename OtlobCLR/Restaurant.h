@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <string>
 #include <vector>
-#include "Menu.h"
+#include "Menuu.h"
 #include "Category.h"
 #include "Feedback.h"
 
@@ -50,7 +50,7 @@ public:
 	static Restaurant create(int id, int menuId, float rating, string name, string gov, string area, string workingHours, string phone, string picturePath, vector<int> reviewsIds, vector<int> categoriesIds);
 	/*void destroy();
 	//ObjectsGetter::DeleteResturant(R.getId()); 
-	Menu getMenu();
+	Menuu getMenu();
 	//ObjectsGetter::GetMenu(R.getMenuId());
 	vector<Category> getCategories();
 	//vector<Category> ObjectsGetter::getCategoriesOfRestayrant(Restaurant r)

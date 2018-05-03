@@ -8,7 +8,7 @@ namespace OtlobCLR {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace System::Collections::Generic;
 	/// <summary>
 	/// Summary for AdminListOrders
 	/// </summary>
@@ -86,30 +86,46 @@ namespace OtlobCLR {
 	private: System::Void dataGridView1_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
 	}
 	private: System::Void AdminListOrders_Load(System::Object^  sender, System::EventArgs^  e) {
-		//ArrayList^ vv = gcnew ArrayList();
-		DataTable^ t = gcnew DataTable();
-		t->Columns->Add("ID");
-		/*t->Columns->Add("User ID");
-		t->Columns->Add("Restaurant ID");
-		t->Columns->Add("Employee ID");
-		t->Columns->Add("Is Cancelled");*/
-		//dataGridView1->DataSource = v;
-		*v = ObjectsGetter::GetAllOrders();
-		for (int i = 0; i < v->size(); i++)
+		//List<String^>^ items = gcnew List<String^>();
+		//items->Add(Convert::ToString((*v)[0].getId()));
+		//String^ S = "ID";
+		//dataGridView1->Columns->Add();
+		DataGridViewColumn^ C0 = gcnew DataGridViewColumn();
+		DataGridViewColumn^ C1 = gcnew DataGridViewColumn();
+		DataGridViewColumn^ C2 = gcnew DataGridViewColumn();
+		DataGridViewColumn^ C3 = gcnew DataGridViewColumn();
+		DataGridViewColumn^ C4 = gcnew DataGridViewColumn();
+		DataGridViewCell^ Cell = gcnew DataGridViewTextBoxCell();
+
+		C0->CellTemplate = Cell;
+		C0->HeaderText = "ID";
+		dataGridView1->Columns->Add(C0);
+
+		C1->CellTemplate = Cell;
+		C1->HeaderText = "User ID";
+		dataGridView1->Columns->Add(C1);
+
+		C2->CellTemplate = Cell;
+		C2->HeaderText = "Restaurant ID";
+		dataGridView1->Columns->Add(C2);
+
+		C3->CellTemplate = Cell;
+		C3->HeaderText = "Employee ID";
+		dataGridView1->Columns->Add(C3);
+
+		C4->CellTemplate = Cell;
+		C4->HeaderText = "Canceled";
+		dataGridView1->Columns->Add(C4);
+		for (int i = 0; i < (*v).size(); i++)
 		{
-			ArrayList ^r = gcnew ArrayList();
-			String^ S = Convert::ToString((*v)[i].getId());
-			r->Add(S);
-			//r->Add((*v)[i].getId());
-			/*r->Add((*v)[i].getUserid());
-			r->Add((*v)[i].getRestaurantid());
-			r->Add((*v)[i].getEmployeeid());
-			r->Add((*v)[i].getIscancelled());
-			t->Rows->Add(r);*/
+			cli::array<String^>^ aa = gcnew cli::array<String^>(5);
+			aa[0] = Convert::ToString((*v)[i].getId());
+			aa[1] = Convert::ToString((*v)[i].getUserid());
+			aa[2] = Convert::ToString((*v)[i].getRestaurantid());
+			aa[3] = Convert::ToString((*v)[i].getEmployeeid());
+			aa[4] = Convert::ToString((*v)[i].getIscancelled());
+			dataGridView1->Rows->Add(aa);
 		}
-		ArrayList ^r = gcnew ArrayList();
-		r->Add()
-		dataGridView1->DataSource = t;
 	}
 	};
 }

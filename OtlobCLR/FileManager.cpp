@@ -104,11 +104,11 @@ void FileManager::saveFeedback(vector<Feedback> fb)
 	f << j.dump();
 	f.close();
 }
-void FileManager::saveMenu(vector<Menu> menus)
+void FileManager::saveMenu(vector<Menuu> menus)
 {
 	json j = json::array();
 	ofstream f;
-	string ss = *path + "\\Menu.json";
+	string ss = *path + "\\Menuu.json";
 	f.open(ss , ofstream::out);
 	for (int i = 0; i < menus.size(); i++)
 	{
@@ -141,11 +141,11 @@ void FileManager::saveMenuCategory(vector<MenuCategory> cat)
 	f << j.dump();
 	f.close();
 }
-void FileManager::saveMenuItem(vector<MenuItem> it)
+void FileManager::saveMenuItem(vector<MenuItemM> it)
 {
 	json j = json::array();
 	ofstream f;
-	string ss = *path + "\\MenuItem.json";
+	string ss = *path + "\\MenuItemM.json";
 	f.open(ss, ofstream::out);
 	for (int i = 0; i < it.size(); i++)
 	{
@@ -376,13 +376,13 @@ vector<Feedback> FileManager::loadFeedback()
 	return ret;
 }
 
-vector<Menu> FileManager::loadMenu()
+vector<Menuu> FileManager::loadMenu()
 {
-	json jj = readFile("Feedback.json");
-	vector<Menu> ret;
+	json jj = readFile("Menu.json");
+	vector<Menuu> ret;
 	for (int i = 0; i < jj.size(); i++)
 	{
-		Menu menu;
+		Menuu menu;
 		menu.setId(jj[i]["id"]);
 		menu.setMenucategoriesids(jsonArrayToVector(jj[i]["menu_categories_ids"]));
 		ret.push_back(menu);
@@ -405,19 +405,18 @@ vector<MenuCategory> FileManager::loadMenuCategory()
 	return ret;
 }
 
-vector<MenuItem> FileManager::loadMenuItem()
+vector<MenuItemM> FileManager::loadMenuItem()
 {
 	json jj = readFile("MenuItem.json");
-	vector<MenuItem> ret;
+	vector<MenuItemM> ret;
 	for (int i = 0; i < jj.size(); i++)
 	{
-		MenuItem menuItem;
+		MenuItemM menuItem;
 		menuItem.setId(jj[i]["id"]);
-		menuItem.setDescription(jj[i]["description"]);
 		menuItem.setName(jj[i]["name"]);
 		menuItem.setPicturepath(jj[i]["picture_path"]);
 		menuItem.setQuantity(jj[i]["quantity"]);
-		menuItem.setVariationsids(jsonArrayToVector(jj[i]["variation_ids"]));
+		menuItem.setVariationsids(jsonArrayToVector(jj[i]["variations_ids"]));
 		ret.push_back(menuItem);
 	}
 	return ret;
@@ -494,7 +493,6 @@ vector<User> FileManager::loadUser()
 		user.setName(jj[i]["name"]);
 		user.setPassword(jj[i]["password"]);
 		user.setPhone(jj[i]["phone"]);
-		user.setCreditcard(jj[i]["credit_card"]);
 		ret.push_back(user);
 	}
 	return ret;
