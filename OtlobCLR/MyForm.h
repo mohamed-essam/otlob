@@ -2,7 +2,6 @@
 #include <msclr\marshal_cppstd.h>
 #include <Windows.h>
 #include "ObjectsGetter.h"
-#include "Userlogin.h"
 namespace OtlobCLR {
 
 	using namespace System;
@@ -24,12 +23,6 @@ namespace OtlobCLR {
 			//
 			//TODO: Add the constructor code here
 			//
-			Address->BackColor = Color::Transparent;
-			username->BackColor = Color::Transparent;
-			password->BackColor = Color::Transparent;
-			email->BackColor = Color::Transparent;
-			Phone->BackColor = Color::Transparent;
-			Birthdate->BackColor = Color::Transparent;
 
 		}
 
@@ -82,7 +75,6 @@ namespace OtlobCLR {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->signupButton = (gcnew System::Windows::Forms::Button());
 			this->username = (gcnew System::Windows::Forms::Label());
 			this->password = (gcnew System::Windows::Forms::Label());
@@ -111,20 +103,18 @@ namespace OtlobCLR {
 			// username
 			// 
 			this->username->AutoSize = true;
-			this->username->ForeColor = System::Drawing::Color::White;
 			this->username->Location = System::Drawing::Point(12, 23);
 			this->username->Name = L"username";
-			this->username->Size = System::Drawing::Size(55, 13);
+			this->username->Size = System::Drawing::Size(73, 17);
 			this->username->TabIndex = 1;
 			this->username->Text = L"Username";
 			// 
 			// password
 			// 
 			this->password->AutoSize = true;
-			this->password->ForeColor = System::Drawing::Color::White;
 			this->password->Location = System::Drawing::Point(12, 74);
 			this->password->Name = L"password";
-			this->password->Size = System::Drawing::Size(53, 13);
+			this->password->Size = System::Drawing::Size(69, 17);
 			this->password->TabIndex = 2;
 			this->password->Text = L"Password";
 			// 
@@ -132,23 +122,22 @@ namespace OtlobCLR {
 			// 
 			this->usernameText->Location = System::Drawing::Point(91, 23);
 			this->usernameText->Name = L"usernameText";
-			this->usernameText->Size = System::Drawing::Size(357, 20);
+			this->usernameText->Size = System::Drawing::Size(357, 22);
 			this->usernameText->TabIndex = 3;
 			// 
 			// passwordtext
 			// 
 			this->passwordtext->Location = System::Drawing::Point(91, 69);
 			this->passwordtext->Name = L"passwordtext";
-			this->passwordtext->Size = System::Drawing::Size(357, 20);
+			this->passwordtext->Size = System::Drawing::Size(357, 22);
 			this->passwordtext->TabIndex = 4;
 			// 
 			// email
 			// 
 			this->email->AutoSize = true;
-			this->email->ForeColor = System::Drawing::Color::White;
 			this->email->Location = System::Drawing::Point(12, 123);
 			this->email->Name = L"email";
-			this->email->Size = System::Drawing::Size(32, 13);
+			this->email->Size = System::Drawing::Size(42, 17);
 			this->email->TabIndex = 5;
 			this->email->Text = L"Email";
 			// 
@@ -156,16 +145,15 @@ namespace OtlobCLR {
 			// 
 			this->emailtext->Location = System::Drawing::Point(91, 120);
 			this->emailtext->Name = L"emailtext";
-			this->emailtext->Size = System::Drawing::Size(357, 20);
+			this->emailtext->Size = System::Drawing::Size(357, 22);
 			this->emailtext->TabIndex = 6;
 			// 
 			// Phone
 			// 
 			this->Phone->AutoSize = true;
-			this->Phone->ForeColor = System::Drawing::Color::White;
 			this->Phone->Location = System::Drawing::Point(12, 173);
 			this->Phone->Name = L"Phone";
-			this->Phone->Size = System::Drawing::Size(38, 13);
+			this->Phone->Size = System::Drawing::Size(49, 17);
 			this->Phone->TabIndex = 5;
 			this->Phone->Text = L"Phone";
 			// 
@@ -173,16 +161,15 @@ namespace OtlobCLR {
 			// 
 			this->Phonetext->Location = System::Drawing::Point(91, 173);
 			this->Phonetext->Name = L"Phonetext";
-			this->Phonetext->Size = System::Drawing::Size(357, 20);
+			this->Phonetext->Size = System::Drawing::Size(357, 22);
 			this->Phonetext->TabIndex = 6;
 			// 
 			// Birthdate
 			// 
 			this->Birthdate->AutoSize = true;
-			this->Birthdate->ForeColor = System::Drawing::Color::White;
 			this->Birthdate->Location = System::Drawing::Point(12, 223);
 			this->Birthdate->Name = L"Birthdate";
-			this->Birthdate->Size = System::Drawing::Size(49, 13);
+			this->Birthdate->Size = System::Drawing::Size(65, 17);
 			this->Birthdate->TabIndex = 5;
 			this->Birthdate->Text = L"Birthdate";
 			// 
@@ -190,16 +177,15 @@ namespace OtlobCLR {
 			// 
 			this->Birthdatetext->Location = System::Drawing::Point(91, 223);
 			this->Birthdatetext->Name = L"Birthdatetext";
-			this->Birthdatetext->Size = System::Drawing::Size(357, 20);
+			this->Birthdatetext->Size = System::Drawing::Size(357, 22);
 			this->Birthdatetext->TabIndex = 6;
 			// 
 			// Address
 			// 
 			this->Address->AutoSize = true;
-			this->Address->ForeColor = System::Drawing::Color::White;
 			this->Address->Location = System::Drawing::Point(12, 273);
 			this->Address->Name = L"Address";
-			this->Address->Size = System::Drawing::Size(45, 13);
+			this->Address->Size = System::Drawing::Size(60, 17);
 			this->Address->TabIndex = 5;
 			this->Address->Text = L"Address";
 			// 
@@ -207,14 +193,12 @@ namespace OtlobCLR {
 			// 
 			this->Addresstext->Location = System::Drawing::Point(91, 273);
 			this->Addresstext->Name = L"Addresstext";
-			this->Addresstext->Size = System::Drawing::Size(357, 20);
+			this->Addresstext->Size = System::Drawing::Size(357, 22);
 			this->Addresstext->TabIndex = 6;
 			// 
 			// MyForm
 			// 
 			this->BackColor = System::Drawing::SystemColors::HotTrack;
-			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(460, 360);
 			this->Controls->Add(this->emailtext);
 			this->Controls->Add(this->email);
@@ -244,34 +228,37 @@ namespace OtlobCLR {
 		String^ Birthdate = Birthdatetext->Text;
 		String^ Phone = Phonetext->Text;
 		String^ Address = Addresstext->Text;
-		ObjectsGetter::initUsers();
-		std::string em = msclr::interop::marshal_as<std::string>(email);
-		std::string pass = msclr::interop::marshal_as<std::string>(password);
-		std::string name = msclr::interop::marshal_as<std::string>(username);
-		std::string address = msclr::interop::marshal_as<std::string>(Address);
-		std::string birthdate = msclr::interop::marshal_as<std::string>(Birthdate);
-		std::string phone = msclr::interop::marshal_as<std::string>(Phone);
-		try
-		{
-			User user = ObjectsGetter::GetUserByEmailAndPassword(em, pass);
-			MessageBox::Show("already exist");
+		if (username != "" &&password != "" &&Birthdate != "" &&Phone != "" &&email != "" &&Address != "") {
+			ObjectsGetter::initUsers();
+			std::string em = msclr::interop::marshal_as<std::string>(email);
+			std::string pass = msclr::interop::marshal_as<std::string>(password);
+			std::string name = msclr::interop::marshal_as<std::string>(username);
+			std::string address = msclr::interop::marshal_as<std::string>(Address);
+			std::string birthdate = msclr::interop::marshal_as<std::string>(Birthdate);
+			std::string phone = msclr::interop::marshal_as<std::string>(Phone);
+			try
+			{
+				User user = ObjectsGetter::GetUserByEmailAndPassword(em, pass);
+				MessageBox::Show("already exist");
+			}
+			catch (Exception^ e)
+			{
+				int id = 2;
+				User user;
+				user.setEmail(em);
+				user.setId(id);
+				user.setName(name);
+				user.setAddress(address);
+				user.setBirthdate(birthdate);
+				user.setPhone(phone);
+				user.setPassword(pass);
+				ObjectsGetter::AddUser(user);
+				ObjectsGetter::saveUsers();
+			}
 		}
-		catch (exception *e)
+		else
 		{
-			int id = 2; 
-			User user; 
-			user.setEmail(em); 
-			user.setId(id); 
-			user.setName(name); 
-			user.setAddress(address); 
-			user.setBirthdate(birthdate);
-			user.setPhone(phone); 
-			user.setPassword(pass); 
-			ObjectsGetter::AddUser(user); 
-			ObjectsGetter::saveUsers(); 
-			Userlogin^ mf = gcnew Userlogin();
-			mf->Show();
-			this->Hide();
+			MessageBox::Show("Complete your data please"); 
 		}
 
 	}

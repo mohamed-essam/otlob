@@ -160,6 +160,7 @@
     <ClCompile Include="User.cpp" />
     <ClCompile Include="Userlogin.cpp" />
     <ClCompile Include="Variation.cpp" />
+    <ClCompile Include="ViewOrders.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
@@ -240,6 +241,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Variation.h" />
+    <ClInclude Include="ViewOrders.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -308,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Userlogin.resx">
       <DependentUpon>Userlogin.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewOrders.resx">
+      <DependentUpon>ViewOrders.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -36,6 +36,12 @@
     <ClCompile Include="GetAddress.cpp" />
     <ClCompile Include="RestaurantItem.cpp" />
     <ClCompile Include="RestaurantsForm.cpp" />
+    <ClCompile Include="CategoryForm.cpp" />
+    <ClCompile Include="CatIteam.cpp" />
+    <ClCompile Include="GetAddress.cpp" />
+    <ClCompile Include="RestaurantItem.cpp" />
+    <ClCompile Include="RestaurantsForm.cpp" />
+    <ClCompile Include="ViewOrders.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
@@ -74,6 +80,7 @@
     <ClInclude Include="GetAddress.h" />
     <ClInclude Include="RestaurantItem.h" />
     <ClInclude Include="RestaurantsForm.h" />
+    <ClInclude Include="ViewOrders.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AdminListOrders.resx" />

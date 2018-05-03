@@ -9,7 +9,7 @@ namespace OtlobCLR {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace System::Collections::Generic;
 	/// <summary>
 	/// Summary for AdminEmp
 	/// </summary>
@@ -17,6 +17,7 @@ namespace OtlobCLR {
 	{
 	public:
 		System::Windows::Forms::Form^ prev;
+		List<String^>^ list = gcnew List<String^>();
 		AdminEmp(void)
 		{
 			InitializeComponent();
@@ -47,6 +48,7 @@ namespace OtlobCLR {
 	protected:
 	private: System::Windows::Forms::Button^  srch;
 	private: System::Windows::Forms::Button^  neww;
+	private: System::Windows::Forms::DataGridView^  dataGridView1;
 
 
 	protected:
