@@ -132,9 +132,12 @@
     <ClCompile Include="Cart.cpp" />
     <ClCompile Include="CartItem.cpp" />
     <ClCompile Include="Category.cpp" />
+    <ClCompile Include="CategoryForm.cpp" />
+    <ClCompile Include="CatIteam.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="Feedback.cpp" />
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="GetAddress.cpp" />
     <ClCompile Include="HomePage.cpp" />
     <ClCompile Include="Human.cpp" />
     <ClCompile Include="listitem.cpp" />
@@ -148,6 +151,8 @@
     <ClCompile Include="Order.cpp" />
     <ClCompile Include="OrderItem.cpp" />
     <ClCompile Include="Restaurant.cpp" />
+    <ClCompile Include="RestaurantItem.cpp" />
+    <ClCompile Include="RestaurantsForm.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="Userlogin.cpp" />
     <ClCompile Include="Variation.cpp" />
@@ -172,9 +177,18 @@
     <ClInclude Include="Cart.h" />
     <ClInclude Include="CartItem.h" />
     <ClInclude Include="Category.h" />
+    <ClInclude Include="CategoryForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CatIteam.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="Employee.h" />
     <ClInclude Include="Feedback.h" />
     <ClInclude Include="FileManager.h" />
+    <ClInclude Include="GetAddress.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="HomePage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -199,6 +213,12 @@
     <ClInclude Include="Order.h" />
     <ClInclude Include="OrderItem.h" />
     <ClInclude Include="Restaurant.h" />
+    <ClInclude Include="RestaurantItem.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="RestaurantsForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="User.h" />
     <ClInclude Include="Userlogin.h">
       <FileType>CppForm</FileType>
@@ -228,6 +248,15 @@
     <EmbeddedResource Include="AdminShowOrders.resx">
       <DependentUpon>AdminShowOrders.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CategoryForm.resx">
+      <DependentUpon>CategoryForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CatIteam.resx">
+      <DependentUpon>CatIteam.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GetAddress.resx">
+      <DependentUpon>GetAddress.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.h</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +271,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestaurantItem.resx">
+      <DependentUpon>RestaurantItem.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestaurantsForm.resx">
+      <DependentUpon>RestaurantsForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Userlogin.resx">
       <DependentUpon>Userlogin.h</DependentUpon>

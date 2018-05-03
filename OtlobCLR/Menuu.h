@@ -1,5 +1,5 @@
-#ifndef MENU_H
-#define MENU_H
+#ifndef MENUU_H
+#define MENUU_H
 
 #include <cstring>
 #include <cstdlib>

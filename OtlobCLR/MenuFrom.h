@@ -2,6 +2,7 @@
 #include <msclr\marshal_cppstd.h>
 #include "ObjectsGetter.h"
 #include "listitem.h"
+#include <set>
 
 namespace OtlobCLR {
 
@@ -18,13 +19,16 @@ namespace OtlobCLR {
 	public ref class MenuFrom : public System::Windows::Forms::Form
 	{
 	public:
-		MenuFrom(void)
+		property int UID;
+		MenuFrom(Restaurant r,int uid)
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
-			loadMenu();
+			UID = uid;
+			Menuu u = ObjectsGetter::GetMenu(r.getMenuId());
+			loadMenu(u);
 		}
 	protected:
 		/// <summary>
@@ -55,21 +59,25 @@ namespace OtlobCLR {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MenuFrom::typeid));
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// flowLayoutPanel1
 			// 
+			this->flowLayoutPanel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->flowLayoutPanel1->AutoScroll = true;
+			this->flowLayoutPanel1->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->flowLayoutPanel1->Location = System::Drawing::Point(12, 67);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(610, 383);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(704, 383);
 			this->flowLayoutPanel1->TabIndex = 0;
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(219, 12);
+			this->button1->Location = System::Drawing::Point(280, 12);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(161, 49);
 			this->button1->TabIndex = 1;
@@ -79,9 +87,9 @@ namespace OtlobCLR {
 			// 
 			// MenuFrom
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(634, 462);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->ClientSize = System::Drawing::Size(728, 462);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Name = L"MenuFrom";
@@ -90,28 +98,29 @@ namespace OtlobCLR {
 
 		}
 
-		void loadMenu()
+		void loadMenu(Menuu u)
 		{
-			listitem^ item = gcnew listitem("a",15,"C:\\Users\\MOody\\Desktop\\file\\a.jpg",10,1);
-			listitem^ item2 = gcnew listitem("b", 25, "C:\\Users\\MOody\\Desktop\\file\\b.jpg", 10, 2);
-			listitem^ item3 = gcnew listitem("c", 35, "C:\\Users\\MOody\\Desktop\\file\\a.jpg", 10, 3);
-			listitem^ item1 = gcnew listitem("a", 15, "C:\\Users\\MOody\\Desktop\\file\\a.jpg", 10, 4);
-			listitem^ item12 = gcnew listitem("b", 25, "C:\\Users\\MOody\\Desktop\\file\\b.jpg", 10, 5);
-			listitem^ item13 = gcnew listitem("c", 35, "C:\\Users\\MOody\\Desktop\\file\\a.jpg", 10, 6);
-			listitem^ item22 = gcnew listitem("a", 15, "C:\\Users\\MOody\\Desktop\\file\\a.jpg", 10, 7);
-			listitem^ item222 = gcnew listitem("b", 25, "C:\\Users\\MOody\\Desktop\\file\\b.jpg", 10, 8);
-			listitem^ item2223 = gcnew listitem("c", 35, "C:\\Users\\MOody\\Desktop\\file\\a.jpg", 10, 9);
-
-			flowLayoutPanel1->Controls->Add(item);
-			flowLayoutPanel1->Controls->Add(item2);
-			flowLayoutPanel1->Controls->Add(item3);
-			flowLayoutPanel1->Controls->Add(item1);
-			flowLayoutPanel1->Controls->Add(item12);
-			flowLayoutPanel1->Controls->Add(item13);
-			flowLayoutPanel1->Controls->Add(item22);
-			flowLayoutPanel1->Controls->Add(item222);
-			flowLayoutPanel1->Controls->Add(item2223);
-			//listView1->Items->Add(gcnew item);
+			vector<int> v = u.getMenucategoriesids();
+			vector<MenuCategory> m;
+			for (auto i : v)
+				m.push_back(ObjectsGetter::GetMenuCategory(i));
+			set<int> st;
+			for (auto i : m)
+				for (auto j : i.getMenuitemsids())
+					st.insert(j);
+			vector<MenuItemM> items;
+			for (auto i : st)
+				items.push_back(ObjectsGetter::GetMenuIteam(i));
+			for (auto i : items)
+			{
+				vector<int> var = i.getVariationsids();
+				for (auto j : var) 
+				{
+					Variation variation = ObjectsGetter::GetVaritation(j);
+					listitem^ item = gcnew listitem(i.getName()+" "+variation.getName(), variation.getPrice(), i.getPicturepath(), i.getQuantity(), variation.getId());
+					flowLayoutPanel1->Controls->Add(item);
+				}
+			}
 		}
 		
 #pragma endregion

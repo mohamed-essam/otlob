@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <set>
 #include "FileManager.h"
 
 using namespace std;
@@ -67,7 +68,7 @@ public:
 	static Restaurant GetRestaurant(int);
 	static vector<Order> GetAllOrders();
 	static vector<Order> GetOrderByRange(long long);
-	static vector<Category> GetAllCategories();
+	static vector<Category> GetAllCategories(string,string);
 	static vector<Restaurant> ShowRestaurantByCategory(Category);
 	static vector<Order>GetOrderByUser(User);
 	static vector<MenuItemM> ObjectsGetter::GetAllMenuITems();
@@ -102,6 +103,9 @@ public:
 	static vector<Category> getCategoriesOfRestayrant(Restaurant r);
 	static vector<Feedback> getReviewsOfRestaurant(Restaurant r);
 	static vector<Order> listOrdersOfUser(User u);
+	static set<string> GetGov();
+	static set<string> GetAreas();
+	static vector<Restaurant> GetAllRestaurants(string gov, string area);
 	static void InitAll();
 	static void saveAll();
 	ObjectsGetter();

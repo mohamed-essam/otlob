@@ -474,6 +474,7 @@ vector<Restaurant> FileManager::loadRestaurant()
 		restaurant.setPicturePath(jj[i]["picture_path"]);
 		restaurant.setRating(jj[i]["rating"]);
 		restaurant.setWorkingHours(jj[i]["working_hours"]);
+		restaurant.setCategoriesIds(jj[i]["categories_ids"]);
 		ret.push_back(restaurant);
 	}
 	return ret;

@@ -45,6 +45,7 @@ public:
 	void setPicturePath(string);
 	vector<int> getReviewsIds();
 	void addReviewId(int);
+	void setCategoriesIds(vector<int>);
 	vector<int> getCategoriesIds();
 	void addCategoryId(int);
 	static Restaurant create(int id, int menuId, float rating, string name, string gov, string area, string workingHours, string phone, string picturePath, vector<int> reviewsIds, vector<int> categoriesIds);

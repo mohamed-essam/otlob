@@ -1,6 +1,5 @@
 #pragma once
-#include "ObjectsGetter.h";
-
+#include "CategoryForm.h";
 namespace OtlobCLR {
 
 	using namespace System;
@@ -17,10 +16,14 @@ namespace OtlobCLR {
 	{
 	public:
 		property int userId ; 
-		HomePage(int id)
+		property String ^ G;
+		property String ^ A;
+		HomePage(int id,String^ gov,String^ area)
 		{
 			InitializeComponent();
 			userId = id; 
+			G = gov;
+			A = area;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -40,9 +43,10 @@ namespace OtlobCLR {
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Button^  button3;
-	private: System::Windows::Forms::Button^  button4;
+
 	private: System::Windows::Forms::Button^  button5;
 	private: System::Windows::Forms::Button^  button6;
+	private: System::Windows::Forms::Button^  button4;
 	protected:
 
 	private:
@@ -58,12 +62,13 @@ namespace OtlobCLR {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(HomePage::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -84,6 +89,7 @@ namespace OtlobCLR {
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Show All Rest.";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &HomePage::button2_Click);
 			// 
 			// button3
 			// 
@@ -93,16 +99,6 @@ namespace OtlobCLR {
 			this->button3->TabIndex = 2;
 			this->button3->Text = L"View My Order";
 			this->button3->UseVisualStyleBackColor = true;
-			// 
-			// button4
-			// 
-			this->button4->Location = System::Drawing::Point(49, 213);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(308, 37);
-			this->button4->TabIndex = 3;
-			this->button4->Text = L"View Special Offers";
-			this->button4->UseVisualStyleBackColor = true;
-			this->button4->Click += gcnew System::EventHandler(this, &HomePage::button4_Click);
 			// 
 			// button5
 			// 
@@ -124,8 +120,20 @@ namespace OtlobCLR {
 			this->button6->UseVisualStyleBackColor = true;
 			this->button6->Click += gcnew System::EventHandler(this, &HomePage::button6_Click);
 			// 
+			// button4
+			// 
+			this->button4->Location = System::Drawing::Point(49, 213);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(308, 37);
+			this->button4->TabIndex = 3;
+			this->button4->Text = L"View Special Offers";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &HomePage::button4_Click);
+			// 
 			// HomePage
 			// 
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(425, 349);
 			this->Controls->Add(this->button6);
 			this->Controls->Add(this->button5);
@@ -139,11 +147,19 @@ namespace OtlobCLR {
 			this->ResumeLayout(false);
 
 		}
+
+		void ee(Object^ senedr, EventArgs^ e)
+		{
+			this->Show();
+		}
 #pragma endregion
 	private: System::Void HomePage_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-		MessageBox::Show(userId.ToString());
+		CategoryForm^ m = gcnew CategoryForm(userId, G, A);
+		m->Show();
+		m->Closed += gcnew EventHandler(ee);
+		this->Hide();
 	}
 	private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
@@ -153,6 +169,11 @@ private: System::Void button5_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
 	Application::Restart(); 
+}
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+	RestaurantsForm^ mf = gcnew RestaurantsForm(userId,G,A,-1);
+	mf->Show();
+	this->Hide();
 }
 };
 }

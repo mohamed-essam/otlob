@@ -349,12 +349,25 @@ vector<Order> ObjectsGetter::GetOrderByRange(long long st)
 	}
 	return vec;
 }
-vector<Category> ObjectsGetter::GetAllCategories()
+vector<Category> ObjectsGetter::GetAllCategories(string gov, string area)
 {
+	vector<Restaurant>res = GetAllRestaurants(gov, area);
+	set<int>st;
+	for (auto i : res)
+		for (auto j : i.getCategoriesIds())
+			st.insert(j);
 	vector<Category>vec;
-	for (auto it = Categories.begin(); it != Categories.end(); it++)
+	for (auto i : st)
+		vec.push_back(GetCategory(i));
+	return vec;
+}
+vector<Restaurant> ObjectsGetter::GetAllRestaurants(string gov,string area)
+{
+	vector<Restaurant>vec;
+	for (auto i : Restaurants)
 	{
-		vec.push_back(it->second);
+		if(i.second.getArea() == area && i.second.getGovernorate() == gov)
+			vec.push_back(i.second);
 	}
 	return vec;
 }
@@ -601,6 +614,25 @@ vector<Order> ObjectsGetter::listOrdersOfUser(User u)
 	for (auto i : u.getOrderIds())
 		ret.push_back(GetOrder(i));
 	return ret;
+}
+
+set<string> ObjectsGetter::GetGov()
+{
+	set<string> st;
+	for (auto it = Restaurants.begin(); it != Restaurants.end(); it++)
+	{
+		st.insert(it->second.getGovernorate());
+	}
+	return st;
+}
+set<string> ObjectsGetter::GetAreas()
+{
+	set<string> st;
+	for (auto it = Restaurants.begin(); it != Restaurants.end(); it++)
+	{
+		st.insert(it->second.getArea());
+	}
+	return st;
 }
 
 #pragma endregion
